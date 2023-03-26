@@ -64,3 +64,11 @@ group :development do
   # gem "spring"
 end
 
+
+gem "wow-rails", "~> 0.0.1"
+
+gem "jquery-rails", "~> 4.5"
+gem "jquery-ui-rails", "~> 6.0"
+gem "sassc-rails", "~> 2.1"
+
+gem "bootstrap", "~> 5.2"

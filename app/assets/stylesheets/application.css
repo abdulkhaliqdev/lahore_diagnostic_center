@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+@import "style/animate";
+@import "style/bootstrap";
+@import "style/font-awesome";
+@import "style/media";
+@import "style/templatemo-style";
+
+@import "bootstrap"; 
+@import "animate.css"; 
+@import "font-awesome";

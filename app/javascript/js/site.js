@@ -125,22 +125,22 @@ $(document).ready(function () {
     //var editorBody = $(".k-editable-area iframe").contents().find("body");
     //editorBody.css("font-family", "Arial");
     //      console.log($(".k-editable-area iframe").contents().find("body"));
-    // $(".k-editable-area iframe").contents().find("body").css("font-family", "Fira Sans");
-    // setTimeout(function () {
-    //     $("#labtestgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-    //     $("#usergrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + userGridMargin() + "px) !important; height:100% !important");
-    //     $("#patientgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-    //     $("#casegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + caseGridMargin() + "px) !important; height:100% !important");
-    //     $("#labcasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 315 + "px) !important; height:100% !important");
-    //     $("#doctorgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 255 + "px) !important; height:100% !important");
-    //     $("#consultantgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 255 + "px) !important; height:100% !important");
-    //     $("#receptioncasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + receiptionCaseGridMargin() + "px) !important; height:100% !important");
-    //     $("#reportcasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 325 + "px) !important; height:100% !important");
-    //     $("#expensegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-    //     $("#categorygrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-    //     $("#groupgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-    //     $('[data-toggle=popover]').popover();
-    // }, 100);
+    $(".k-editable-area iframe").contents().find("body").css("font-family", "Fira Sans");
+    setTimeout(function () {
+        $("#labtestgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#usergrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + userGridMargin() + "px) !important; height:100% !important");
+        $("#patientgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#casegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + caseGridMargin() + "px) !important; height:100% !important");
+        $("#labcasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 315 + "px) !important; height:100% !important");
+        $("#doctorgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 255 + "px) !important; height:100% !important");
+        $("#consultantgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 255 + "px) !important; height:100% !important");
+        $("#receptioncasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + receiptionCaseGridMargin() + "px) !important; height:100% !important");
+        $("#reportcasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 325 + "px) !important; height:100% !important");
+        $("#expensegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#categorygrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#groupgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $('[data-toggle=popover]').popover();
+    }, 100);
     //}, 3000);
 });
 

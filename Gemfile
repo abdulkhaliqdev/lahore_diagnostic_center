@@ -72,3 +72,7 @@ gem "jquery-ui-rails", "~> 6.0"
 gem "sassc-rails", "~> 2.1"
 
 gem "bootstrap", "~> 5.2"
+
+gem "devise", "~> 4.9"
+
+gem "pry", "~> 0.14.2"

@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+      }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  
+  namespace :admin do
+    resources :dashboard, only: [:index]
+  end
+  
+  namespace :receptionist do
+    resources :dashboard, only: [:index]
+  end
+
+  root 'home#index'
 end

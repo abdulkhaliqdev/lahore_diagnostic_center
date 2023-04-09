@@ -1,6 +1,8 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 // Write your JavaScript code.
+import $ from 'jquery';
+
 $(document).ready(function () {
     // usergrid add button
     $("#usergrid .k-grid-add").on("click", function (e) {
@@ -127,23 +129,22 @@ $(document).ready(function () {
     //      console.log($(".k-editable-area iframe").contents().find("body"));
     $(".k-editable-area iframe").contents().find("body").css("font-family", "Fira Sans");
     setTimeout(function () {
-        $("#labtestgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-        $("#usergrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + userGridMargin() + "px) !important; height:100% !important");
-        $("#patientgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-        $("#casegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + caseGridMargin() + "px) !important; height:100% !important");
-        $("#labcasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 315 + "px) !important; height:100% !important");
-        $("#doctorgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 255 + "px) !important; height:100% !important");
-        $("#consultantgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 255 + "px) !important; height:100% !important");
-        $("#receptioncasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + receiptionCaseGridMargin() + "px) !important; height:100% !important");
-        $("#reportcasegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 325 + "px) !important; height:100% !important");
-        $("#expensegrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-        $("#categorygrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
-        $("#groupgrid .k-grid-content")?.attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#labtestgrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#usergrid .k-grid-content").attr("style", "max-height: calc(100vh - " + userGridMargin() + "px) !important; height:100% !important");
+        $("#patientgrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#casegrid .k-grid-content").attr("style", "max-height: calc(100vh - " + caseGridMargin() + "px) !important; height:100% !important");
+        $("#labcasegrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 315 + "px) !important; height:100% !important");
+        $("#doctorgrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 255 + "px) !important; height:100% !important");
+        $("#consultantgrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 255 + "px) !important; height:100% !important");
+        $("#receptioncasegrid .k-grid-content").attr("style", "max-height: calc(100vh - " + receiptionCaseGridMargin() + "px) !important; height:100% !important");
+        $("#reportcasegrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 325 + "px) !important; height:100% !important");
+        $("#expensegrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#categorygrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
+        $("#groupgrid .k-grid-content").attr("style", "max-height: calc(100vh - " + 250 + "px) !important; height:100% !important");
         $('[data-toggle=popover]').popover();
     }, 100);
     //}, 3000);
 });
-
 function ConsultantFiltering(ev) {
     var filterValue = ev.filter != undefined ? ev.filter.value : "";
     ev.preventDefault();
@@ -227,3 +228,134 @@ function LoadConsultantFilter() {
         });
     }
 }
+
+/* HTML document is loaded. DOM is ready.
+-------------------------------------------*/
+
+function NumberFormatter(number) {
+    if (number > 1000000) {
+        return kendo.toString((number / 1000000), 'n2') + 'M';
+    }
+    else {
+        return kendo.toString(number, 'n0'); // if value < 1000, nothing to do
+    }
+}
+function SmallNumberFormatter(number) {
+    if (number > 999 && number < 1000000) {
+        return kendo.toString((number / 1000), 'n2') + 'K'; // convert to K for number from > 1000 < 1 million
+    } else if (number > 1000000) {
+        return kendo.toString((number / 1000000), 'n2') + 'M';
+    } else if (number < 900) {
+        return kendo.toString(number, 'n0'); // if value < 1000, nothing to do
+    }
+    else {
+        return number;
+    }
+}
+
+$(function () {
+
+    /* start typed element */
+    //http://stackoverflow.com/questions/24874797/select-div-title-text-and-make-array-with-jquery
+    var subElementArray = $.map($('.sub-element'), function (el) { return $(el).text(); });
+    $(".element").typed({
+        strings: subElementArray,
+        typeSpeed: 30,
+        contentType: 'html',
+        showCursor: false,
+        loop: true,
+        loopCount: true,
+    });
+    /* end typed element */
+
+    /* Smooth scroll and Scroll spy (https://github.com/ChrisWojcik/single-page-nav)    
+    ---------------------------------------------------------------------------------*/
+
+    $('.templatemo-nav').singlePageNav({
+        offset: $(".templatemo-nav").height(),
+        filter: ':not(.external)',
+        updateHash: false
+    });
+
+    /*    $(".spa-nav").on("click", function () {
+            let id = $(this).attr("href");
+            document.querySelector(id).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });*/
+
+    /* start navigation top js */
+    $(window).scroll(function () {
+        let height = $("header").height() + 34;
+        if ($(this).scrollTop() > height) {
+            $(".templatemo-nav").addClass("sticky");
+        }
+        else {
+            $(".templatemo-nav").removeClass("sticky");
+        }
+    });
+
+    /* Hide mobile menu after clicking on a link
+    -----------------------------------------------*/
+    $('.navbar-collapse a').click(function () {
+        $(".navbar-collapse").collapse('hide');
+    });
+    /* end navigation top js */
+
+    $('body').bind('touchstart', function () { });
+
+    // $("#dtTo").kendoDatePicker();
+    // $("#dtFrom").kendoDatePicker();
+
+
+
+    /* wow
+    -----------------*/
+    // new WOW().init();
+});
+
+function caseGridMargin() {
+    if (window.innerWidth < 576) {
+        $("#casegrid").css("margin-bottom", "15px");
+        return 406;
+    }
+    else if (window.innerWidth > 575 && window.innerWidth < 768) {
+        $("#casegrid").css("margin-bottom", "15px");
+        return 355;
+    }
+    else {
+        return 325;
+    }
+}
+
+function receiptionCaseGridMargin() {
+    if (window.innerWidth < 576) {
+        return 410;
+    }
+    else if (window.innerWidth > 575 && window.innerWidth < 768) {
+        return 355;
+    }
+    else {
+        return 325;
+    }
+}
+function userGridMargin() {
+    if (window.innerWidth < 576) {
+        return 335;
+    }
+    else if (window.innerWidth > 575 && window.innerWidth < 768) {
+        return 355;
+    }
+    else {
+        return 250;
+    }
+}
+
+
+/* start preloader */
+$(document).ready(function(){
+    $(window).load(function () {
+        $('.preloader').fadeOut(1000); // set duration in brackets    
+    });
+});
+/* end preloader */

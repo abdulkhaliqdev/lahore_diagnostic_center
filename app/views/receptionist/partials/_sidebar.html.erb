@@ -67,25 +67,18 @@
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">
-    <li class="menu-item">
-      <a href="index.html" class="menu-link">
+    <li class="menu-item <%= 'active' if params[:controller] == "receptionist/dashboard" %>">
+      <%= link_to receptionist_dashboard_index_path, class: "menu-link" do %>
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Dashboard</div>
-      </a>
+      <% end %>
     </li>
 
-    <li class="menu-item active">
-      <a href="index.html" class="menu-link">
+    <li class="menu-item <%= 'active' if params[:controller] == "receptionist/patient" %>">
+      <%= link_to new_receptionist_patient_path, class: "menu-link" do %>
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Patient</div>
-      </a>
-    </li>
-
-    <li class="menu-item">
-      <a href="index.html" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Other</div>
-      </a>
+        <div data-i18n="Analytics">New Patient</div>
+      <% end %>
     </li>
   </ul>
 </aside>

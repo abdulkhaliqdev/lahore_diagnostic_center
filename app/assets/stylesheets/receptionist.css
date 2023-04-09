@@ -1,3 +1,4 @@
 @import "receptionist/custome";
 @import "partial/core.css";
-@import "partial/custome";
+@import "partial/custome.css";
+@import './styles/font-awesome.min.css';

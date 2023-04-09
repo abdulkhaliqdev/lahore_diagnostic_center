@@ -10,10 +10,15 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :dashboard, only: [:index]
+    resources :referrers
+    resources :patients
+    resources :procedures
+    resources :users
   end
   
   namespace :receptionist do
     resources :dashboard, only: [:index]
+    resources :patients
   end
 
   root 'home#index'

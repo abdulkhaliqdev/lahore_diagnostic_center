@@ -15,13 +15,8 @@
  */
 
 
-
-@import "style/animate";
-@import "style/bootstrap";
-@import "style/font-awesome";
-@import "style/media";
-@import "style/templatemo-style";
-
-@import "bootstrap"; 
-@import "animate.css"; 
-@import "font-awesome";
+@import "styles/bootstrap";
+@import "styles/animate";
+@import "styles/font-awesome";
+@import "styles/templatemo-style";
+/* @import "styles/media"; */

@@ -12,7 +12,9 @@
                         <column />
                         <column />
                     </columns>
-                </div><script>kendo.syncReady(function(){jQuery("#labtestgrid").kendoGrid({"pageable":true,"scrollable":false,"columns":[{"field":"LabTestCategory","title":"Category","width":120},{"field":"Name","title":"Name","template":"${Name}"}],"toolbar":[{"name":"search"}],"dataSource":{"pageSize":10,"schema":{"data":"Data","errors":"Errors","total":"Total"},"transport":{"read":{"url":"/Admin/GetAllTests"}},"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})()}});});</script>
+                </div><script>
+                    kendo.syncReady(function(){jQuery("#labtestgrid").kendoGrid({"pageable":true,"scrollable":false,"columns":[{"field":"LabTestCategory","title":"Category","width":120},{"field":"Name","title":"Name","template":"${Name}"}],"toolbar":[{"name":"search"}],"dataSource":{"pageSize":10,"schema":{"data":"Data","errors":"Errors","total":"Total"},"transport":{"read":{"url":"/Admin/GetAllTests"}},"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})()}});});
+                </script>
             </div>
         </div>
     </div>

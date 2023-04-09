@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4", ">= 7.0.4.2"
+gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -15,17 +15,16 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
-
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
+gem 'turbolinks', '~> 5'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+gem "sass-rails", "~> 6.0"
+gem 'webpacker', '~> 5.0'
+gem "devise", "~> 4.9"
+gem 'cocoon', '~> 1.2', '>= 1.2.15'
+gem "momentjs-rails", "~> 2.29"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -65,14 +64,12 @@ group :development do
 end
 
 
-gem "wow-rails", "~> 0.0.1"
 
 gem "jquery-rails", "~> 4.5"
-gem "jquery-ui-rails", "~> 6.0"
-gem "sassc-rails", "~> 2.1"
-
-gem "bootstrap", "~> 5.2"
-
-gem "devise", "~> 4.9"
 
 gem "pry", "~> 0.14.2"
+
+gem "rqrcode", "~> 2.1"
+
+gem "shrine", "~> 3.4"
+gem "image_processing", "~> 1.12"

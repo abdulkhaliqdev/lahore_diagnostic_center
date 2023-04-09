@@ -7,16 +7,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-      <%= render 'receptionist/partials/sidebar' %>
+      <%= render 'admin/partials/sidebar' %>
       
       <div class="layout-page">
-        <%= render 'receptionist/partials/header' %>
+        <%= render 'admin/partials/header' %>
           <div class="content-wrapper">
             <%= yield %>
           </div>

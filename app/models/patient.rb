@@ -1,11 +1,10 @@
 class Patient < ApplicationRecord
-  # include ImageUploader::Attachment(:qr_code)
+  include ImageUploader::Attachment(:qr_code)
 
   has_many :patient_procedures
   accepts_nested_attributes_for :patient_procedures, allow_destroy: true, reject_if: :all_blank
 
-  has_many :referrers
-  accepts_nested_attributes_for :referrers, allow_destroy: true, reject_if: :all_blank
+  has_one :referrer
   
   before_create :generate_patient_and_case_id
 

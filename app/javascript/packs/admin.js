@@ -6,6 +6,5 @@ console.log($)
 
 import "../js/bootstrap"
 import "../js/wow"
-import '../js/cocoon.js'
 import "@nathanvda/cocoon"
-import "@fortawesom"
+import "@fortawesome/fontawesome-free/js/all"

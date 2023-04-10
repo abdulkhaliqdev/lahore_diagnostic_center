@@ -4,17 +4,16 @@ class Receptionist::PatientsController < Receptionist::BaseController
 
   def new
     @patient    = Patient.new
-    # @procedures = Procedure.all
     @patient.patient_procedures.build
-    @patient.build_referrer
+    @procedures = Procedure.all
   end
   
   def create    
     @patient = Patient.new(patient_params)
     if @patient.save
-      # @patient.qr_code.attach(io: StringIO.new(png.to_s), filename: "filename.png")
-      binding.pry
-      redirect_to root_path
+      @patient.update(qr_code: @patient.qr_generate.to_s)
+
+      redirect_to receptionist_dashboard_index_path
     else
     end
   end
@@ -40,9 +39,9 @@ class Receptionist::PatientsController < Receptionist::BaseController
       :gender, 
       :age, 
       :address,
-      referrer_attributes: [:id, :hospital_name, :doctor_name, _destroy]
+      :referrer_id,
+      patient_procedures_attributes: %i[id price procedure_id receptionist_id user_id _destroy]
     )
-    # patient_procedure_attributes: %i[id price procedure_id receptionist_id _destroy]
   end
   
   def find_patient

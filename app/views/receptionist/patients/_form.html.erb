@@ -30,6 +30,11 @@
             </div>
           </div>
 
+          <div class='mb-3'>
+            <%= form.label 'Referrer', class: 'form-label' %>
+            <%= form.select :referrer_id, Referrer.all.map { |k| ["#{k.hospital_name.humanize} - #{k.doctor_name.humanize}", k.id]},  { prompt: 'Select Referrer' }, class: "form-select" %>
+          </div>
+
           <div>
             <%= form.label 'Address', class: 'form-label' %>
             <%= form.text_field :address, required:true, placeholder: 'Address', class: 'form-control' %>
@@ -40,13 +45,11 @@
               <%= render 'patient_procedure_fields', f: patient_procedure %>
             <% end %>
 
-            <div class='col-12 d-flex justify-content-end'>
-              <button type="button" class="btn btn-outline-primary account-image-reset my-2">
-                <span class="d-none d-sm-block">
-                  <%= link_to_add_association 'Add New Test', form, :patient_procedures %>
-                </span>
-              </button>
+            <div class='btn btn-outline-primary account-image-reset my-2'>
+              <%= link_to_add_association 'Add New Test', form, :patient_procedures %>
             </div>
+
+            </div> 
           </div>
 
           <div class="sub-btn my-3 d-flex justify-content-end">

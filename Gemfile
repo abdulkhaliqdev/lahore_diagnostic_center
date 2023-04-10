@@ -73,3 +73,5 @@ gem "rqrcode", "~> 2.1"
 
 gem "shrine", "~> 3.4"
 gem "image_processing", "~> 1.12"
+
+gem "will_paginate", "~> 3.3"

@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   
   namespace :receptionist do
     resources :dashboard, only: [:index]
-    resources :patients
+    resources :patients do
+      get 'invoice'
+    end
   end
 
   root 'home#index'

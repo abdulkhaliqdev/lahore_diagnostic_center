@@ -1,17 +1,25 @@
 class Receptionist::PatientsController < Receptionist::BaseController
   def index
+    @patients    = Patient.all.order(created_at: :desc)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'Invoices'
+      end
+    end
   end
 
   def new
+    @procedures = Procedure.all
     @patient    = Patient.new
     @patient.patient_procedures.build
-    @procedures = Procedure.all
   end
   
   def create    
     @patient = Patient.new(patient_params)
     if @patient.save
-      @patient.update(qr_code: @patient.qr_generate.to_s)
+      binding.pry
+      @patient.update(image: @patient.qr_generate.to_s)
 
       redirect_to receptionist_dashboard_index_path
     else
@@ -28,6 +36,16 @@ class Receptionist::PatientsController < Receptionist::BaseController
   end
 
   def destroy
+  end
+
+  def invoice
+    render pdf: "invoice", template: "receptionist/patients/invoice.html.erb", formats: :pdf
+    # respond_to do |format|
+    #   format.html
+    #   format.pdf do
+    #     render pdf: "file_name", template: "receptionist/patients/invoice.html.erb"
+    #   end
+    # end
   end
 
   private

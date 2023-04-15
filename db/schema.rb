@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_005248) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "referrer_id"
-    t.text "qr_code_data"
+    t.text "image_data"
     t.index ["referrer_id"], name: "index_patients_on_referrer_id"
   end
 

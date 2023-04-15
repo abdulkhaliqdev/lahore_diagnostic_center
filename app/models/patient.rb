@@ -1,5 +1,5 @@
 class Patient < ApplicationRecord
-  include ImageUploader::Attachment(:qr_code)
+  include ImageUploader::Attachment(:image)
 
   has_many :patient_procedures
   accepts_nested_attributes_for :patient_procedures, allow_destroy: true, reject_if: :all_blank
@@ -36,6 +36,12 @@ class Patient < ApplicationRecord
     )
 
     png
+  end
+
+  def bill
+    bill = self.patient_procedures.pluck('SUM(price)').first
+
+    bill.nil? ? 0 : bill
   end
 
   private

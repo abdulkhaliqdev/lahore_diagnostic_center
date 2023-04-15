@@ -66,12 +66,11 @@ end
 
 
 gem "jquery-rails", "~> 4.5"
-
 gem "pry", "~> 0.14.2"
-
 gem "rqrcode", "~> 2.1"
-
 gem "shrine", "~> 3.4"
 gem "image_processing", "~> 1.12"
-
 gem "will_paginate", "~> 3.3"
+
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"

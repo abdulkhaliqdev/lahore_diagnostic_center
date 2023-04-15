@@ -75,7 +75,7 @@
     </li>
 
     <li class="menu-item <%= 'active' if params[:controller] == "receptionist/patient" %>">
-      <%= link_to new_receptionist_patient_path, class: "menu-link" do %>
+      <%= link_to receptionist_patients_path, class: "menu-link" do %>
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">New Patient</div>
       <% end %>

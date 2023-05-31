@@ -1,6 +1,8 @@
 .pdf__body {
   display: flex;
   box-sizing: border-box;
+	object-fit: contain;
+
 }
 
 .head__slip {
@@ -105,7 +107,7 @@
 }
 
 .w__auto {
-	width: 30%;
+	width: auto;
 }
 
 .h__100 {
@@ -142,7 +144,11 @@
 	border: 1px solid red;
 }
 
-
 .grand__total {
 	padding-left: 80%;
+}
+
+
+.border {
+	border: 2px solid red;
 }

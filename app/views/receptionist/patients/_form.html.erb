@@ -40,19 +40,18 @@
             <%= form.text_field :address, required:true, placeholder: 'Address', class: 'form-control' %>
           </div>
 
-          <div class="row border border-1 my-4 mx-1 rounded py-3" id='patient_procedures'>
+          <div class="row border border-1 my-4 mx-1 rounded py-3 justify-content-end" id='patient_procedures'>
             <%= form.fields_for :patient_procedures do |patient_procedure| %>
               <%= render 'patient_procedure_fields', f: patient_procedure %>
             <% end %>
-
-            <div class='btn btn-outline-primary account-image-reset my-2'>
-              <%= link_to_add_association 'Add New Test', form, :patient_procedures %>
+            <div>
+              <%= link_to_add_association 'Add New Test', form, :patient_procedures, class: 'btn btn-outline-primary account-image-reset my-2 w-25 me-4'%>
             </div>
 
             </div> 
           </div>
 
-          <div class="sub-btn my-3 d-flex justify-content-end">
+          <div class="sub-btn mt-2 mb-3 d-flex justify-content-end me-4">
             <%= form.submit class: 'btn btn-success'%>
           </div>
         <% end %>

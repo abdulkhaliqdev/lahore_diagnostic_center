@@ -6,7 +6,11 @@
     </div>
     <div>
       <%= f.label 'Price', class: 'form-label' %>
-      <%= f.number_field :price, required: true, placeholder: 'Price', class: 'form-control' %>
+      <%= f.number_field :price, placeholder: 'Price', class: 'form-control' %>
+    </div>
+    <div>
+      <%= f.label 'Report', class: 'form-label' %>
+      <%= f.rich_text_area :content %>
     </div>
 
     <%= f.hidden_field :user_id, value: current_user.id %>

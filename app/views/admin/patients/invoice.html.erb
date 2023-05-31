@@ -1,9 +1,9 @@
 <head>
-  <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+  <%= wicked_pdf_stylesheet_link_tag "admin_pdf" %>
 </head>
 
 <div class="main__pdf h__100">
-  <%= render 'invoice_header' %>
+  <%= render 'admin/patients/invoice_header' %>
   <hr/>
   <div class='test-list'>
     <table>
@@ -47,6 +47,6 @@
 
   <div class="invoice__footer w__100">
     <hr />
-    <%= render 'invoice_footer', class: 'bb' %>
+    <%= render 'admin/patients/invoice_footer', class: 'bb' %>
   </div>
 </div>

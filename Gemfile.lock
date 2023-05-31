@@ -68,6 +68,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
+    ansi (1.5.0)
+    ast (2.4.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -119,6 +121,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    matrix (0.4.2)
     method_source (1.0.0)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
@@ -138,8 +141,18 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.14.3-x86_64-linux)
       racc (~> 1.4)
+    oga (3.4)
+      ast
+      ruby-ll (~> 2.1)
     orm_adapter (0.5.0)
+    pdf-core (0.9.0)
     pg (1.4.6)
+    prawn (2.4.0)
+      pdf-core (~> 0.9.0)
+      ttfunk (~> 1.7)
+    prawn-html (0.7.1)
+      oga (~> 3.3)
+      prawn (~> 2.4)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -188,6 +201,9 @@ GEM
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
     rqrcode_core (1.2.0)
+    ruby-ll (2.1.2)
+      ansi
+      ast
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     sass-rails (6.0.0)
@@ -214,6 +230,9 @@ GEM
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
+    trix (0.10.1)
+      rails
+    ttfunk (1.7.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -238,21 +257,26 @@ GEM
       activesupport
     will_paginate (3.3.1)
     wkhtmltopdf-binary (0.12.6.6)
+    wkhtmltopdf-heroku (2.12.6.0)
     zeitwerk (2.6.7)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actiontext (~> 7.0)
   bootsnap
   cocoon (~> 1.2, >= 1.2.15)
   debug
   devise (~> 4.9)
-  image_processing (~> 1.12)
+  image_processing (~> 1.2)
   jbuilder
   jquery-rails (~> 4.5)
+  matrix (~> 0.4.2)
   momentjs-rails (~> 2.29)
   pg (~> 1.1)
+  prawn (~> 2.4)
+  prawn-html (~> 0.7.1)
   pry (~> 0.14.2)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
@@ -260,6 +284,7 @@ DEPENDENCIES
   sass-rails (~> 6.0)
   shrine (~> 3.4)
   sprockets-rails
+  trix (~> 0.10.1)
   turbolinks (~> 5)
   tzinfo-data
   web-console
@@ -267,6 +292,7 @@ DEPENDENCIES
   wicked_pdf
   will_paginate (~> 3.3)
   wkhtmltopdf-binary
+  wkhtmltopdf-heroku
 
 RUBY VERSION
    ruby 3.2.0p0

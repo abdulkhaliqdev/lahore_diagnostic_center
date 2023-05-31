@@ -11,17 +11,37 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :referrers
-    resources :patients
+    resources :patients do
+      member do
+        get 'invoice'
+      end
+
+      collection do
+        get 'search'
+      end
+    end
     resources :procedures
     resources :users
+
+    root 'admin#dashboard'
   end
   
   namespace :receptionist do
     resources :dashboard, only: [:index]
     resources :patients do
-      get 'invoice'
+      member do
+        get 'invoice'
+      end
+      
+      collection do
+        get 'search'
+      end
     end
+
+    root 'receptionist#dashboard'
   end
+
+  get '/report', to: 'home#report'
 
   root 'home#index'
 end

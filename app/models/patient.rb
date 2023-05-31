@@ -13,6 +13,9 @@ class Patient < ApplicationRecord
     female: 1
   }
 
+  scope :uncompleted, -> { where(done: false) }
+  scope :completed, -> { where(done: true) }
+
   def generate_patient_and_case_id
     year  = Date.today.year.to_s.last(2)
     month = Date.today.month
@@ -21,27 +24,26 @@ class Patient < ApplicationRecord
   end
 
   def qr_generate
-    qrcode = RQRCode::QRCode.new("/?patient_id=#{self.patient_id}&case_id=#{self.case_id}")
-    png = qrcode.as_png(
-      bit_depth: 1,
-      border_modules: 4,
-      color_mode: ChunkyPNG::COLOR_GRAYSCALE,
-      color: 'black',
-      file: nil,
-      fill: 'white',
-      module_px_size: 6,
-      resize_exactly_to: false,
-      resize_gte_to: false,
-      size: 120
-    )
+    qrcode = RQRCode::QRCode.new("https://kyan.com/?patient_id=#{self.patient_id}&case_id=#{self.case_id}", size: 4, level: :m)
+    svg = qrcode.as_svg(
+          color: "000",
+          shape_rendering: "crispEdges",
+          module_size: 6,
+          standalone: true,
+          use_path: true
+        )
 
-    png
+    svg.html_safe
   end
 
   def bill
     bill = self.patient_procedures.pluck('SUM(price)').first
 
     bill.nil? ? 0 : bill
+  end
+
+  def done_status
+    done ? 'Completed' : 'Uncompleted'
   end
 
   private

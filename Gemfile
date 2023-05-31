@@ -45,7 +45,7 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -69,8 +69,15 @@ gem "jquery-rails", "~> 4.5"
 gem "pry", "~> 0.14.2"
 gem "rqrcode", "~> 2.1"
 gem "shrine", "~> 3.4"
-gem "image_processing", "~> 1.12"
 gem "will_paginate", "~> 3.3"
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production
+gem "prawn-html", "~> 0.7.1"
+gem "matrix", "~> 0.4.2"
+gem "prawn", "~> 2.4"
 
-gem "wicked_pdf"
-gem "wkhtmltopdf-binary"
+
+gem "actiontext", "~> 7.0"
+
+gem "trix", "~> 0.10.1"

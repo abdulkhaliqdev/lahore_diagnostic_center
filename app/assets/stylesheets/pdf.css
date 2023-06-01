@@ -142,7 +142,14 @@
 	border: 1px solid red;
 }
 
-
 .grand__total {
 	padding-left: 80%;
+}
+
+.mb__0 {
+	margin-bottom: 0 !important;
+}
+
+.mt__0 {
+	margin-top: 0 !important;
 }

@@ -60,8 +60,12 @@ class Admin::PatientsController < Admin::BaseController
                pdf: "#{@patient.name}",
                formats: [:html],
                disposition: :inline,
-               layout: 'pdf'
-      }
+               layout: 'pdf',
+               options: {
+                page_height: 'Letter',
+                print_media_type: true
+              }
+            }
     end
   end
 

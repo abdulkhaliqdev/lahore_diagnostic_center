@@ -74,6 +74,15 @@
 	color: #334a7a;
 }
 
+.mb__0 {
+	margin-bottom: 0 !important;
+}
+
+.mt__0 {
+	margin-top: 0 !important;
+}
+
+
 .colume__heading {
 	color: #797979;
 }
@@ -148,7 +157,28 @@
 	padding-left: 80%;
 }
 
+.report__section {
+	font-size: 22px;
+}
+
+.m__auto {
+	margin: 0 auto;
+}
+.report__tag {
+	width: 83%;
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+.fixed-width-paragraph {
+  width: 83%; /* Set the desired fixed width */
+  margin: 0 auto; /* Center the paragraph horizontally */
+}
+
+.centered-div {
+  text-align: center; /* Center the content of the div */
+}
 
 .border {
 	border: 2px solid red;
 }
+

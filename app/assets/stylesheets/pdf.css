@@ -133,7 +133,6 @@
 	width: 50%;
 }
 
-
 .bb {
 	border: 1px solid blue;
 }
@@ -152,4 +151,44 @@
 
 .mt__0 {
 	margin-top: 0 !important;
+}
+
+.m__auto {
+	margin: 0 auto;
+}
+.report__tag {
+	width: 83%;
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+.fixed-width-paragraph {
+  width: 83%; /* Set the desired fixed width */
+  margin: 0 auto; /* Center the paragraph horizontally */
+}
+
+.centered-div {
+  text-align: center; /* Center the content of the div */
+}
+
+.border {
+	border: 2px solid red;
+}
+
+.doctor__name {
+	font-size: 25px;
+	font-weight: 900;
+	color: #334a7a;
+}
+
+.doctor__container > p {
+	font-weight: 900;
+	color: rgb(0, 0, 46);
+}
+
+.mt__30 {
+	margin-top: 30px;
+}
+
+.w__10 {
+	width: 13%;
 }

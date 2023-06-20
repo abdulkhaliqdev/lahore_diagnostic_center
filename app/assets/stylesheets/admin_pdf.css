@@ -1,8 +1,7 @@
 .pdf__body {
-  display: flex;
-  box-sizing: border-box;
-	object-fit: contain;
-
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .head__slip {
@@ -16,6 +15,14 @@
 	padding: 30px;
 }
 
+.page_title {
+  background-color: #334a7a;
+  color: white;
+  padding: 10px 0 0;
+  word-spacing: 18px;
+  letter-spacing: 5px;
+	margin-bottom: 0;
+}
 
 .main__pdf {
 	position: relative;
@@ -82,8 +89,8 @@
 	margin-top: 0 !important;
 }
 
-
 .colume__heading {
+	font-size: 15px;
 	color: #797979;
 }
 
@@ -144,7 +151,6 @@
 	width: 50%;
 }
 
-
 .bb {
 	border: 1px solid blue;
 }
@@ -182,3 +188,23 @@
 	border: 2px solid red;
 }
 
+.doctor__name {
+	font-size: 25px;
+	font-weight: 900;
+	color: #334a7a;
+}
+
+.doctor__container > p {
+	font-weight: 900;
+	color: rgb(0, 0, 46);
+}
+
+.mt__30 {
+	margin-top: 30px;
+}
+
+.mt__11 {
+	text-align: start !important;
+	margin-left: 20%;
+	margin-left: 20%;
+}

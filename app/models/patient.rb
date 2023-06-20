@@ -28,7 +28,7 @@ class Patient < ApplicationRecord
     svg = qrcode.as_svg(
           color: "000",
           shape_rendering: "crispEdges",
-          module_size: 6,
+          module_size: 4,
           standalone: true,
           use_path: true
         )

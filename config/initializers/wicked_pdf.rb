@@ -11,8 +11,6 @@
 WickedPdf.config = {}
 WickedPdf.config.merge!({
   layout: "pdf.html.erb",
-  page_height: '12in',
-  page_width: '12in',
   lowquality: true,
   disposition: :inline
 })

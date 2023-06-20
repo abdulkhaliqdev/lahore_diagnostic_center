@@ -45,19 +45,6 @@ class Receptionist::PatientsController < Receptionist::BaseController
   def destroy
   end
 
-  def invoice
-    respond_to do |format|
-      format.html
-      format.pdf { 
-        render template: 'receptionist/patients/invoice', 
-               pdf: "#{@patient.name}",
-               formats: [:html],
-               disposition: :inline,
-               layout: 'pdf'
-      }
-    end
-  end
-
   private
 
   def patient_params

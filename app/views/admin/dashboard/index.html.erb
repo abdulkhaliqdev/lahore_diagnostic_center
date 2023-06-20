@@ -21,7 +21,7 @@
               <td><%= patient&.bill %></td>
               <td><span class="badge bg-label-primary me-1">Uncompleted</span></td>
               <td>
-                <%= link_to "Print", invoice_admin_patient_path(patient, format: :pdf), class: 'btn btn-primary', target: '_blank' %>
+                <%= link_to "Print", report_path(id: patient.id, format: :pdf), class: 'btn btn-primary', target: '_blank' %>
               </td>
               <td>
                 <div class="dropdown position-relative">

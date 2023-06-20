@@ -61,10 +61,8 @@ class Admin::PatientsController < Admin::BaseController
                formats: [:html],
                disposition: :inline,
                layout: 'pdf',
-               options: {
-                page_height: 'Letter',
-                print_media_type: true
-              }
+               page_height: '12in',
+               page_width: '12in'
             }
     end
   end

@@ -53,20 +53,24 @@ group :development, :test do
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
+  gem 'pry'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
+  gem 'capistrano',         '~> 3.14', require: false
+  gem 'capistrano-rails',   '~> 1.6',  require: false
+  gem 'capistrano-bundler', '~> 2.0',  require: false
+  gem 'capistrano-rvm'
 
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  #Dependencies For cap deploy
+  gem 'net-ssh', '>= 6.0.2'
+  gem 'ed25519', '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 end
 
 
 
 gem "jquery-rails", "~> 4.5"
-gem "pry", "~> 0.14.2"
 gem "rqrcode", "~> 2.1"
 gem "shrine", "~> 3.4"
 gem "will_paginate", "~> 3.3"

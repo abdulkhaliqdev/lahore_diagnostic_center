@@ -1,0 +1,47 @@
+<div class="admin-nav-wrapper">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light navbar-admin p-0" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="/"><%= image_tag("tld_logo_small.png") %></a>
+    </div>
+</nav>
+</div>
+
+<section id="admin">
+<div class="container mt-4">
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">USER <span>AUTHORIZATION</span></h2>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-5 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+        <form class="tld-form" action="/Account/Login" method="post">
+            <div class="row mb-1">
+                <div class="col-sm-12">
+                    <label for="Username">USERNAME</label>
+                    <input class="form-control" autocomplete="off" type="text" data-val="true" data-val-minlength="Minimum required length is 6" data-val-minlength-min="6" data-val-required="Username is required" id="Username" name="Username" value="" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <label for="Password">PASSWORD</label>
+                    <input class="form-control" autocomplete="off" type="password" data-val="true" data-val-minlength="Minimum required length is 6" data-val-minlength-min="6" data-val-required="Password is required" id="Password" name="Password" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <div class="col-sm-12">
+                    <input type="submit" value="SUBMIT" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12">
+                    
+                </div>
+            </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Pcl2zgzLA1ItTiwKnMPlRo92fMH-fx2Q5doPdmDaqGhwXX2MGAmmCBKa0eSGtBHPSrmDjjiF4W4I0Jd_MGJrutGy-9NpD_CV8qOmJv80ur_n0Az7OVGAEIRzdd4g5PUtQKXKh9OCUEfK8sCfh2BalY" /></form>
+        
+    </div>
+</div>
+</div>

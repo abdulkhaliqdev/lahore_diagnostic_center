@@ -1,0 +1,66 @@
+<h4 class="fw-bold py-3 mb-4">
+  <span class="text-muted fw-light">Patient /</span> Form
+</h4>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card mb-4">
+      <h5 class="card-header">Patient</h5>
+      <div class="card-body demo-vertical-spacing demo-only-element">
+        <%= form_for [:admin, @patient] do |form| %>
+          <div class='mb-3'>
+            <%= form.label 'Status', class: 'form-label' %>
+            <%= form.select :done, {'completed': true, 'uncompleted': false}.map { |k| ["#{k.first}", k.last] },  { prompt: 'Select Status' }, class: "form-select" %>
+          </div>
+
+          <div class='mb-3'>
+            <%= form.label 'Patient Name', class: 'form-label' %>
+            <%= form.text_field :name, required:true, placeholder: 'Paitent Name', class: 'form-control' %>
+          </div>
+
+          <div class='mb-3'>
+            <%= form.label 'Father/Husband', class: 'form-label' %>
+            <%= form.text_field :father_husband, required:true, placeholder: 'Father/Husband', class: 'form-control' %>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='col-6'>
+              <%= form.label 'Age', class: 'form-label' %>
+              <%= form.number_field :age, required:true, placeholder: 'Age', class: 'form-control' %>
+            </div>
+
+            <div class='col-6'>
+              <%= form.label 'Gender', class: 'form-label' %>
+              <%= form.select :gender, options_for_select(Patient.genders.map {|k, v| [k.humanize, k]}), { prompt: 'Select Gender' }, { class: 'form-select', required: true } %>
+            </div>
+          </div>
+
+          <div class='mb-3'>
+            <%= form.label 'Referrer', class: 'form-label' %>
+            <%= form.select :referrer_id, Referrer.all.map { |k| ["#{k.hospital_name.humanize} - #{k.doctor_name.humanize}", k.id]},  { prompt: 'Select Referrer' }, class: "form-select" %>
+          </div>
+
+          <div>
+            <%= form.label 'Address', class: 'form-label' %>
+            <%= form.text_field :address, required:true, placeholder: 'Address', class: 'form-control' %>
+          </div>
+
+          <div class="row border border-1 my-4 mx-1 rounded py-3 justify-content-end" id='patient_procedures'>
+            <%= form.fields_for :patient_procedures do |patient_procedure| %>
+              <%= render 'patient_procedure_fields', f: patient_procedure %>
+            <% end %>
+            <div>
+              <%= link_to_add_association 'Add New Test', form, :patient_procedures, class: 'btn btn-outline-primary account-image-reset my-2 w-25 me-4'%>
+            </div>
+
+            </div> 
+          </div>
+
+          <div class="sub-btn mt-2 mb-3 d-flex justify-content-end me-4">
+            <%= form.submit class: 'btn btn-success'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<table style='height: 100px;'>
+  <tr>
+    <td class='w__30'>
+      <%= image_tag wicked_pdf_asset_base64('logo'), class: 'w__100' %>
+    <td>
+
+    <td class="user__details w__100">
+      <h1>PATIENT INFORMATION</h1>
+      <hr />
+      <table>
+        <tr>
+          <td class="colume__heading">NAME:</td>
+          <td><%=@patient&.name&.humanize%></td>
+        </tr>
+        <tr>
+          <td class="colume__heading">FATHER/HUSBAND</td>
+          <td><%=@patient&.father_husband&.humanize%></td>
+        </tr>
+        <tr>
+          <td class="colume__heading">AGE</td>
+          <td><%=@patient&.age %> Years</td>
+        </tr>
+        <tr>
+          <td class="colume__heading">PHONE</td>
+          <td>-------------</td>
+        </tr>
+        <tr>
+          <td class="colume__heading">ADDRESS</td>
+          <td><%=@patient&.address%></td>
+        </tr>
+        <tr>
+          <td class="colume__heading">CASE NO:</td>
+          <td><%=@patient&.case_id%></td>
+        </tr>
+        <tr>
+          <td class="colume__heading">PATIENT NO:</td>
+          <td><%=@patient&.patient_id%></td>
+        </tr>
+        <tr>
+          <td class="colume__heading">DATE:</td>
+          <td>20 Mar 2023 2:12 PM</td>
+        </tr>
+        <tr>
+          <td class="colume__heading">USER:</td>
+          <td>--------</td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="w__100">
+      <div>
+          <%= @patient&.qr_generate %>
+      </div>
+    </td>
+  </tr>
+</table>

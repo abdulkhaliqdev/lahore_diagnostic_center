@@ -1,0 +1,40 @@
+<section id="admin">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">USER <span>AUTHORIZATION</span></h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-5 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="row mb-1">
+            <div class="col-sm-12">
+              <label for="Username">Email</label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "Email" %>
+              <span class="text-danger field-validation-valid" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-12">
+              <label for="Password">PASSWORD</label>
+              <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: "Password" %>
+              <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+            </div>
+          </div>
+          <div class="form-group clearfix pb-4">
+            <div class="custom-control custom-checkbox float-left">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Remember me</label>
+            </div>
+          </div>
+          <div class="row mb-1">
+              <div class="col-sm-12">
+                <%= f.submit "Submit", class: 'form-control' %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

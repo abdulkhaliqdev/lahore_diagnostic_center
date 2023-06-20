@@ -1,0 +1,25 @@
+/* up to 360px */
+@media screen and (max-width:400px) {
+    .k-toolbar .k-datepicker {
+        width: 120px !important;
+    }
+    .k-dropdown-wrap .k-input, .k-multiselect-wrap .k-input, .k-numeric-wrap .k-input, .k-picker-wrap .k-input, .k-selectbox .k-input{
+        margin-left:0px !important;
+    }
+    .k-grid-footer{
+        padding-right:1px !important;
+    }
+    .modal-input-currency{
+        left: 28px !important;
+    }
+}
+@media screen and (min-width:401px) and (max-width: 767px) {
+    .k-grid-footer {
+        padding-right: 1px !important;
+    }
+
+    .modal-input-currency {
+        left: 28px !important;
+    }
+}
+

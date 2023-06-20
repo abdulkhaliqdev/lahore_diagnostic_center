@@ -1,0 +1,55 @@
+<style>
+
+.br {
+  border: 1px solid red;
+}
+
+.bb {
+  border: 1px solid blue;
+}
+
+.w__100 {
+  width: 100%;
+}
+
+.text__center {
+  text-align: center;
+}
+
+.mt__0 {
+	margin-top: 0;
+}
+
+.mb__0 {
+	margin-bottom: 0;
+}
+
+</style>
+
+<div>
+	<hr />
+	<h6 class='mt__0 mb__0 text__center'>This is an electronically generated report and does not require signature.</h6>
+	<hr />
+	<table class="w__100">
+		<tr>
+      <td class='text__center'>
+				<h5 class='mt__0 mb__0'>
+					<%= image_tag wicked_pdf_asset_base64('phone.png'), width: 10 %>
+					<strong>0319-4355590</strong>
+				</h5>
+      </td>
+      <td class='text__center'>
+        <h5 class='mt__0 mb__0'>
+					<%= image_tag wicked_pdf_asset_base64('address.png'), width: 10 %>
+					<strong>Sikander Chowk, Benazir Road, Opp. Underpass, Okara.</strong>
+				</h5>
+      </td>
+			<td class="text__center">
+				<h5 class='mt__0 mb__0'>
+					<%= image_tag wicked_pdf_asset_base64('internet.png'), width: 10 %>
+					<strong>www.lahorediagnosticcenter.com</strong>
+				</h5>
+			</td>
+		</tr>
+	</table>
+</div>

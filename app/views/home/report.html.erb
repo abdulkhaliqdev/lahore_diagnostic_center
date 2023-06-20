@@ -1,0 +1,57 @@
+<head>
+  <%= wicked_pdf_stylesheet_link_tag "admin_pdf" %>
+</head>
+<div class="main__pdf">
+  <div style="position: fixed; top: 35%; left: 25%; transform: translate(-50%, -50%); opacity: 0.1; width: 50%; height: 100%;">
+    <%=  image_tag wicked_pdf_asset_base64('logo'), style: "width: 100%; margin: auto 0; object-fit: cover;"%>
+  </div>
+  <%= render 'shared/header', class: 'mt__0 mb__0'%>
+  <hr class='mt__0'/>
+  <div class='test-list'>
+    <table>
+      <tr class=''>
+        <td class="text__start pl-12 mb__0 w__auto text__start mt__11">
+          <h2 class="test__heading mb__0 w__100">Abdominal & Pelvic Ultrasound</h2>
+          <div class="mb__0 mt__0">
+            <span>Referrer: <strong class="performed__and__referrer">Dr.Ruqaya. Iqra Hospital</strong></span>
+          </div>
+        </td>
+        <td class="text__center">
+          <h4><span class='colume__heading'>REPORTED ON: </span> <%= DateTime.now.strftime('%d %b %Y %l:%M %p') %></h4>
+        </td>
+      </tr>
+    </table>
+
+    <table class=''>
+      <tr class='w__auto border'>
+        <h3 class='report__tag m__auto doctor__name'>REPORT:</h3>
+      </tr>
+    </table>
+    <p class='centered-div w__80 m__auto' style= 'overflow: hidden;'>
+      <div class='fixed-width-paragraph'>
+        Single alive intrauterine pregnancy with variable lie and presentation. Fetal cardiac activity and body movements are present. Placenta is fundal posterior & right lateral, not encroaching the lower segment.
+        Amniotic fluid is adequate, AFI is 14 cm.
+        Fetal skull size is small with mild dilatation of ventricular chain. Lateral ventricles measure 10 – 11 mm each. Third ventricle measures 5 mm and fourth ventricle measures 4 mm. Cortical thickness is reduced measures 7.5 mm, 7 mm and 7.6 mm on left side in frontal, parietal and occipital lobes and 5 mm, 6.5 mm and 7 mm on
+        right side in frontal, parietal and occipital lobes. Brain surface is smooth with loss of convolutional markings.
+        Follow up is suggested to exclude  Pachygyria with Lissencephaly? Cerebellum is markedly echogenic, may
+        be dysplastic.
+        Subdural space is prominent containing clear fluid present in frontoparietal regions. Fetal calvarium,
+        craniocervical junction, spine and posterior elements are intact. Fetal muscle tone is normal.
+        Fetal heart is four chambered. No evidence of duodenal atresia. Fetal stomach bubble, kidneys and urinary
+        bladder are normal. No cleft lip. Heart is four chambered. Axial skeleton appears normal. No fetal anterior
+        abdominal wall defect seen. Umbilical cord is three vessels.  (5-7% anomalies cannot be detected on
+        ultrasound)<br>
+        <strong>Fetal Biometry:</strong><br>
+        BPD         :   5.2 cm corresponding to 22 weeks 1 day.<br>
+        FL            :   4.7 cm corresponding to 24 weeks.<br>
+        FAC         :   19.0 cm corresponding to 24 weeks 3 days.<br>
+        HC           :   20.7 cm corresponding to 22 weeks 2 days.<br>
+        EFBW     :   652 grams. (±10%)<br>
+        Gestational age based on measurements is 24+ weeks (according to FAC & FL).<br><br>
+        Cervical length measures 4.1 cm with closed internal os.<br><br>
+        <strong>Conclusion:</strong><br>
+        Single alive intrauterine pregnancy of  24+ weeks (according to FAC & FL).
+      </div>
+    </p>
+  </div>
+</div>

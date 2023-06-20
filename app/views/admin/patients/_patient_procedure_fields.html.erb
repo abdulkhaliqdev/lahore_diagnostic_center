@@ -1,0 +1,20 @@
+<div class="col-md-12 nested-fields">
+  <div class="card mb-4 p-2 border border-1">
+    <div>
+      <%= f.label 'Test', class: 'form-label' %>
+      <%= f.select :procedure_id, options_for_select(@procedures.map {|k, v| [k.title.humanize, k.id]}), { prompt: 'Select Test' }, { class: 'form-select', required: true } %>
+    </div>
+    <div>
+      <%= f.label 'Price', class: 'form-label' %>
+      <%= f.number_field :price, placeholder: 'Price', class: 'form-control' %>
+    </div>
+    <div>
+      <%= f.label 'Report', class: 'form-label' %>
+      <%= f.rich_text_area :content %>
+    </div>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <%= link_to_remove_association "Remove Test", f , class: "btn btn-outline-primary account-image-reset mt-4 mb-2 w-25 "%>
+  </div>
+</div>

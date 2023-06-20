@@ -1,0 +1,43 @@
+<head>
+  <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+</head>
+
+<div class="main__pdf h__100">
+  <%= render 'shared/header', class: 'mt__0 mb__0'%>
+  <hr/>
+  <div class='test-list'>
+    <table>
+      <tr>
+        <td class="pl-20"><h3>Test</h3></td>
+        <td class="text__center w__30"><h3>Cost</h3></td>
+      </tr>
+    </table>
+    <hr />
+    
+    <table>
+      <tr class='text__start'>
+        <td class="pl-12 mb__0 w__auto">
+          <h2 class="test__heading mb__0 w__100">Abdominal & Pelvic Ultrasound</h2>
+          <div class="mb__0 mt__0">
+            <span>Referrer: <strong class="performed__and__referrer">Dr.Ruqaya. Iqra Hospital</strong></span>
+          </div>
+        </td>
+        <td class="text__center w__10">
+          <h4>3000</h4>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <hr />
+
+  <table class="w__100">
+		<tr>
+			<td class="w__1"></td>
+			<td>
+				<h3>Grand Total:</h3>
+			</td>
+			<td><h2>30000000</h2></td>
+		</tr>
+	</table>
+</div>

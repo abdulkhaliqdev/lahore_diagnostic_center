@@ -85,3 +85,5 @@ gem "prawn", "~> 2.4"
 gem "actiontext", "~> 7.0"
 
 gem "trix", "~> 0.10.1"
+
+gem "figaro", "~> 1.2"

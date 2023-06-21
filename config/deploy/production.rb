@@ -63,10 +63,10 @@
 
 
 
-set :deploy_to, "/home/deploy/authentic_backend_rails_staging"
-set :branch, 'main'
+set :deploy_to, "/home/deploy/lahore_diagnostic_center"
+set :branch, 'develop'
 set :rvm_ruby_version, "3.2.0"
 set :rvm_bin_path, '/home/ubuntu/.rvm/bin'
 
-server "43.205.228.94", user: "deploy", pty: false, roles: %w{web app db}
+server "52.221.181.221", user: "deploy", pty: false, roles: %w{web app db}
 

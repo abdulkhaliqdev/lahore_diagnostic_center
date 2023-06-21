@@ -300,6 +300,7 @@ PLATFORMS
 
 DEPENDENCIES
   actiontext (~> 7.0)
+  activestorage (~> 7.0)
   bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap
   capistrano (~> 3.14)

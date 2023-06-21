@@ -87,3 +87,5 @@ gem "actiontext", "~> 7.0"
 gem "trix", "~> 0.10.1"
 
 gem "figaro", "~> 1.2"
+
+gem "activestorage", "~> 7.0"

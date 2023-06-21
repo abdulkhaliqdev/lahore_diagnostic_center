@@ -42,7 +42,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
@@ -54,18 +54,16 @@ end
 
 group :development do
   gem 'pry'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
-  gem 'capistrano',         '~> 3.14', require: false
-  gem 'capistrano-rails',   '~> 1.6',  require: false
-  gem 'capistrano-bundler', '~> 2.0',  require: false
-  gem 'capistrano-rvm'
+  gem "capistrano", "~> 3.17",                   require: false
+  gem "capistrano-rails", "~> 1.6",              require: false
+  gem 'capistrano-bundler', '~> 2.0',            require: false
+  gem 'capistrano-rvm',                          require: false
+  gem 'capistrano3-puma',                        require: false
 
-  #Dependencies For cap deploy
-  gem 'net-ssh', '>= 6.0.2'
-  gem 'ed25519', '>= 1.2', '< 2.0'
-  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+  gem 'web-console', '>= 4.1.0'
+  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'listen', '~> 3.3'
+  gem 'spring'
 end
 
 

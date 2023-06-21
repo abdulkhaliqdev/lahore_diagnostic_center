@@ -21,27 +21,27 @@ append :linked_files, 'config/credentials.yml.enc', 'config/database.yml', 'conf
 append :linked_dirs, 'log', 'storage', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', '.bundle', 'vendor/bundle'
 
 namespace :deploy do
-  # namespace :check do
-  #   desc 'check: copy config/master.key, config/credentials.yml.en and config/database.yml to shared/config'
-  #   before :linked_files, :set_configs do
-  #     on roles(:app), in: :sequence, wait: 10 do
-  #       upload! 'config/database.yml', "#{shared_path}/config/database.yml" unless test("[ -f #{shared_path}/config/database.yml ]")
-  #       upload! 'config/master.key', "#{shared_path}/config/master.key" unless test("[ -f #{shared_path}/config/master.key ]")
-  #       unless test("[ -f #{shared_path}/config/credentials.yml.enc ]")
-  #         upload! 'config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc"
-  #       end
-  #     end
-  #   end
-  # end
-
-  namespace :dependencies do
-    desc 'Run rake yarn:install'
-    task :yarn_install do
-      on roles(:web) do
-        within release_path do
-          execute("cd #{release_path} && yarn install")
+  namespace :check do
+    desc 'check: copy config/master.key, config/credentials.yml.en and config/database.yml to shared/config'
+    before :linked_files, :set_configs do
+      on roles(:app), in: :sequence, wait: 10 do
+        upload! 'config/database.yml', "#{shared_path}/config/database.yml" unless test("[ -f #{shared_path}/config/database.yml ]")
+        upload! 'config/master.key', "#{shared_path}/config/master.key" unless test("[ -f #{shared_path}/config/master.key ]")
+        unless test("[ -f #{shared_path}/config/credentials.yml.enc ]")
+          upload! 'config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc"
         end
       end
     end
   end
+
+  # namespace :dependencies do
+  #   desc 'Run rake yarn:install'
+  #   task :yarn_install do
+  #     on roles(:web) do
+  #       within release_path do
+  #         execute("cd #{release_path} && yarn install")
+  #       end
+  #     end
+  #   end
+  # end
 end

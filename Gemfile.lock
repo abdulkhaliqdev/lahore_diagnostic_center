@@ -73,7 +73,6 @@ GEM
     ansi (1.5.0)
     ast (2.4.2)
     bcrypt (3.1.18)
-    bcrypt_pbkdf (1.1.0)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -91,6 +90,10 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano3-puma (5.2.0)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (>= 4.0, < 6.0)
     chunky_png (1.4.0)
     cocoon (1.2.15)
     coderay (1.1.3)
@@ -109,7 +112,6 @@ GEM
       warden (~> 1.2.3)
     down (5.4.0)
       addressable (~> 2.8)
-    ed25519 (1.3.0)
     erubi (1.12.0)
     ffi (1.15.5)
     figaro (1.2.0)
@@ -186,6 +188,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.4)
+    rack-mini-profiler (2.3.4)
+      rack (>= 1.2.0)
     rack-proxy (0.7.6)
       rack
     rack-test (2.1.0)
@@ -249,9 +253,6 @@ GEM
       content_disposition (~> 1.0)
       down (~> 5.1)
     spring (2.1.1)
-    spring-watcher-listen (2.0.1)
-      listen (>= 2.7, < 4.0)
-      spring (>= 1.2, < 3.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -301,39 +302,39 @@ PLATFORMS
 DEPENDENCIES
   actiontext (~> 7.0)
   activestorage (~> 7.0)
-  bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap
-  capistrano (~> 3.14)
+  capistrano (~> 3.17)
   capistrano-bundler (~> 2.0)
   capistrano-rails (~> 1.6)
   capistrano-rvm
+  capistrano3-puma
   cocoon (~> 1.2, >= 1.2.15)
   debug
   devise (~> 4.9)
-  ed25519 (>= 1.2, < 2.0)
   figaro (~> 1.2)
   image_processing (~> 1.2)
   jbuilder
   jquery-rails (~> 4.5)
+  listen (~> 3.3)
   matrix (~> 0.4.2)
   momentjs-rails (~> 2.29)
-  net-ssh (>= 6.0.2)
   pg (~> 1.1)
   prawn (~> 2.4)
   prawn-html (~> 0.7.1)
   pry
   puma (~> 5.0)
+  rack-mini-profiler (~> 2.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   rqrcode (~> 2.1)
   sass-rails (~> 6.0)
+  sassc-rails
   shrine (~> 3.4)
   spring
-  spring-watcher-listen (~> 2.0.0)
   sprockets-rails
   trix (~> 0.10.1)
   turbolinks (~> 5)
   tzinfo-data
-  web-console (>= 3.3.0)
+  web-console (>= 4.1.0)
   webpacker (~> 5.0)
   wicked_pdf
   will_paginate (~> 3.3)

@@ -2,6 +2,7 @@ set :application, 'lahore_diagnostic_center'
 set :repo_url,  'git@github.com:abdulkhaliqdev/lahore_diagnostic_center.git'
 
 set :rvm_type, :user
+set :nvm_node, 'v14.21.2'
 set :puma_threads,            [4, 16]
 set :puma_workers,            0
 set :pty,                     true
@@ -18,13 +19,12 @@ set :keep_releases,           1
 set :aws_region, "sgp1"
 set :webpack, '/usr/local/bin/webpack'
 
-# Set Node.js version
-set :default_env, {
-  'NODE_VERSION' => '14.21.2'
-}
-
-append :linked_files, 'config/credentials.yml.enc', 'config/database.yml', 'config/master.key'
+append :linked_files, 'config/credentials.yml.enc', 'config/database.yml', 'config/master.key',  'package.json'
 append :linked_dirs, 'log', 'storage', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', '.bundle', 'vendor/bundle'
+
+set :default_env, {
+  'NODE_VERSION' => fetch(:nvm_node)
+}
 
 namespace :deploy do
   namespace :check do

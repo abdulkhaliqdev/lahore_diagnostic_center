@@ -46,26 +46,26 @@ namespace :deploy do
   end
 
   # Profile webpack-dev-server
-  task :profile_webpack_dev_server do
-    on roles(:web) do
-      within release_path do
-        execute :bundle, 'exec ./bin/webpack-dev-server'
-      end
-    end
-  end
+  # task :profile_webpack_dev_server do
+  #   on roles(:web) do
+  #     within release_path do
+  #       execute :bundle, 'exec ./bin/webpack-dev-server'
+  #     end
+  #   end
+  # end
 
-  # Profile rails server
-  task :profile_rails_server do
-    on roles(:web) do
-      within release_path do
-        execute :bundle, 'exec rails s'
-      end
-    end
-  end
+  # # Profile rails server
+  # task :profile_rails_server do
+  #   on roles(:web) do
+  #     within release_path do
+  #       execute :bundle, 'exec rails s'
+  #     end
+  #   end
+  # end
 
-  # Combine the profiling tasks
-  task :profile_servers do
-    invoke 'profile_webpack_dev_server'
-    invoke 'profile_rails_server'
-  end
+  # # Combine the profiling tasks
+  # task :profile_servers do
+  #   invoke 'profile_webpack_dev_server'
+  #   invoke 'profile_rails_server'
+  # end
 end

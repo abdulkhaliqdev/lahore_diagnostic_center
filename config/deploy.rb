@@ -16,6 +16,7 @@ set :puma_worker_timeout,     nil
 set :puma_init_active_record, true
 set :keep_releases,           5
 set :aws_region, "sgp1"
+set :webpack, 'node_modules/.bin/webpack'
 
 append :linked_files, 'config/credentials.yml.enc', 'config/database.yml', 'config/master.key'
 append :linked_dirs, 'log', 'storage', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', '.bundle', 'vendor/bundle'

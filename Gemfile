@@ -64,6 +64,11 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+
+  #Dependencies For cap deploy
+  gem 'net-ssh', '>= 6.0.2'
+  gem 'ed25519', '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 end
 
 
@@ -87,3 +92,5 @@ gem "trix", "~> 0.10.1"
 gem "figaro", "~> 1.2"
 
 gem "activestorage", "~> 7.0"
+
+gem "bootstrap-sass", "~> 3.4"

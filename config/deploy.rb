@@ -18,6 +18,11 @@ set :keep_releases,           1
 set :aws_region, "sgp1"
 set :webpack, '/usr/local/bin/webpack'
 
+# Set Node.js version
+set :default_env, {
+  'NODE_VERSION' => '14.21.2'
+}
+
 append :linked_files, 'config/credentials.yml.enc', 'config/database.yml', 'config/master.key'
 append :linked_dirs, 'log', 'storage', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', '.bundle', 'vendor/bundle'
 
@@ -36,12 +41,15 @@ namespace :deploy do
   end
 
   before "deploy:assets:precompile", "deploy:yarn_install"
+
   namespace :deploy do
     desc "Run rake yarn install"
     task :yarn_install do
       on roles(:web) do
         within release_path do
-          execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
+          with node_env: fetch(:node_env, 'production'), path: fetch(:yarn_path, '$HOME/.yarn/bin') do
+            execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
+          end
         end
       end
     end

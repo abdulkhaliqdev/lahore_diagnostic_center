@@ -1,4 +1,9 @@
 {
+  "name": "lahore_daignostic_center",
+  "version": "1.0.0",
+  "engines": {
+    "node": "14.21.2"
+  },
   "dependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",

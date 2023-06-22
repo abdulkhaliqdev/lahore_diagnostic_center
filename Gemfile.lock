@@ -271,6 +271,7 @@ GEM
     sshkit (1.21.4)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    stackprof (0.2.25)
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
@@ -343,6 +344,7 @@ DEPENDENCIES
   shrine (~> 3.4)
   spring
   sprockets-rails
+  stackprof (~> 0.2.25)
   trix (~> 0.10.1)
   turbolinks (~> 5)
   tzinfo-data

@@ -24,7 +24,7 @@ namespace :deploy do
   namespace :check do
     desc 'check: copy config/master.key, config/credentials.yml.en and config/database.yml to shared/config'
     before :linked_files, :set_configs do
-      on roles(:app), in: :sequence, wait: 10 do
+      on roles(:web), in: :sequence, wait: 10 do
         upload! 'config/database.yml', "#{shared_path}/config/database.yml" unless test("[ -f #{shared_path}/config/database.yml ]")
         upload! 'config/master.key', "#{shared_path}/config/master.key" unless test("[ -f #{shared_path}/config/master.key ]")
         unless test("[ -f #{shared_path}/config/credentials.yml.enc ]")
@@ -34,14 +34,38 @@ namespace :deploy do
     end
   end
 
-  # namespace :dependencies do
-  #   desc 'Run rake yarn:install'
-  #   task :yarn_install do
-  #     on roles(:web) do
-  #       within release_path do
-  #         execute("cd #{release_path} && yarn install")
-  #       end
-  #     end
-  #   end
-  # end
+  namespace :dependencies do
+    desc 'Run rake yarn:install'
+    task :yarn_install do
+      on roles(:web) do
+        within release_path do
+          execute("cd #{release_path} && yarn install")
+        end
+      end
+    end
+  end
+
+  # Profile webpack-dev-server
+  task :profile_webpack_dev_server do
+    on roles(:web) do
+      within release_path do
+        execute :bundle, 'exec ./bin/webpack-dev-server'
+      end
+    end
+  end
+
+  # Profile rails server
+  task :profile_rails_server do
+    on roles(:web) do
+      within release_path do
+        execute :bundle, 'exec rails s'
+      end
+    end
+  end
+
+  # Combine the profiling tasks
+  task :profile_servers do
+    invoke 'profile_webpack_dev_server'
+    invoke 'profile_rails_server'
+  end
 end

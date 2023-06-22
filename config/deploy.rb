@@ -14,9 +14,9 @@ set :puma_error_log,          "#{release_path}/log/puma.error.log"
 set :puma_preload_app,        true
 set :puma_worker_timeout,     nil
 set :puma_init_active_record, true
-set :keep_releases,           5
+set :keep_releases,           1
 set :aws_region, "sgp1"
-set :webpack, 'node_modules/.bin/webpack'
+set :webpack, '/usr/local/bin/webpack'
 
 append :linked_files, 'config/credentials.yml.enc', 'config/database.yml', 'config/master.key'
 append :linked_dirs, 'log', 'storage', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', '.bundle', 'vendor/bundle'
@@ -35,12 +35,13 @@ namespace :deploy do
     end
   end
 
-  namespace :dependencies do
-    desc 'Run rake yarn:install'
+  before "deploy:assets:precompile", "deploy:yarn_install"
+  namespace :deploy do
+    desc "Run rake yarn install"
     task :yarn_install do
       on roles(:web) do
         within release_path do
-          execute("cd #{release_path} && yarn install")
+          execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
         end
       end
     end

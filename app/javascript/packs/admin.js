@@ -8,8 +8,6 @@ console.log($)
 import "../js/bootstrap"
 import "@fortawesome/fontawesome-free/js/all"
 import "../js/wow"
-
 import Trix from "trix"
 
-document.addEventListener("trix-before-initialize", () => {
-})
+document.addEventListener("trix-before-initialize", () => {});

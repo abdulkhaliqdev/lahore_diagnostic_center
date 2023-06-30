@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   get '/report', to: 'home#report'
   get '/invoice', to: 'home#invoice'
+  get '/view_report', to: 'home#view_report'
 
   root 'home#index'
 end

@@ -12,16 +12,18 @@
             </div>
         </div>
         <div class="row tld-form">
-            <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
-                <div>
-                    <label>PATIENT NUMBER</label>
-                    <input name="patient-number" autocomplete="off" type="text" style="text-transform:uppercase" class="form-control" id="patient-number">
+            <div class="col-md-6 col-sm-6 col-xs-12 fadeInLeft" data-wow-offset="50">
+              <%= form_with(url: '/view_report', method: 'get') do |f| %>
+              <div>
+                <%= f.label :patient_id, "Patient ID" %>
+                <%= f.text_field :patient_id, autocomplete: "off", class: "form-control", required: true %>
 
-                    <label>CASE NUMBER</label>
-                    <input name="case-number" autocomplete="off" type="text" style="text-transform:uppercase" class="form-control" id="case-number">
+                <%= f.label :case_id, "Case ID" %>
+                <%= f.text_field :case_id, autocomplete: "off", type: "text", style: "text-transform:uppercase", class: "form-control", required: true %>
 
-                    <input type="button" onclick="ViewReport()" value="VIEW REPORT" class="form-control">
-                </div>
+                 <%= submit_tag "VIEW REPORT", class: "form-control" %>
+              </div>
+              <% end %>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
                 <p class="info">EXAMPLE</p>

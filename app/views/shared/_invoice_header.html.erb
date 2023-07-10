@@ -1,10 +1,6 @@
-<div class='text__center w__100'>
-  <h1 class='page_title'>LAHORE DIAGNOSTIC CENTER</h1>
-</div>
-
 <table class= 'w__100 mt__0 mb__0'>
   <tr>
-    <td class='text__center'>
+    <td class='w__50 text__center'>
       <table>
         <tr>
           <%= image_tag wicked_pdf_asset_base64('logo'), width: 100 %>
@@ -21,42 +17,42 @@
       </table>
     <td>
 
-    <td class="user__details">
+    <td class="user__details w__50">
       <h2>PATIENT INFORMATION</h2>
       <hr />
       <table>
         <tr>
           <td class="colume__heading">NAME:</td>
-          <td><%=@patient&.name&.humanize%></td>
+          <td><%= @patient&.name&.humanize %></td>
         </tr>
         <tr>
           <td class="colume__heading">FATHER/HUSBAND</td>
-          <td><%=@patient&.father_husband&.humanize%></td>
+          <td><%= @patient&.father_husband&.humanize %></td>
         </tr>
         <tr>
           <td class="colume__heading">AGE</td>
-          <td><%=@patient&.age %> Years</td>
+          <td><%= @patient&.age %> Years</td>
         </tr>
         <tr>
           <td class="colume__heading">PHONE</td>
-          <td>-------------</td>
+          <td> <%= @patient&.phone_number %></td>
         </tr>
         <tr>
           <td class="colume__heading">ADDRESS</td>
-          <td><%=@patient&.address%></td>
+          <td><%=@patient&.address %></td>
         </tr>
         <tr>
           <td class="colume__heading">DATE:</td>
-          <td>20 Mar 2023 2:12 PM</td>
+          <td><%= DateTime.now.strftime('%d %b %Y %l:%M %p') %></td>
         </tr>
         <tr>
           <td class="colume__heading">USER:</td>
-          <td>--------</td>
+          <td> <%= @patient&.patient_prodcedure&.last&.user&.name&.humanize %></td>
         </tr>
       </table>
     </td>
 
-    <td class="w__25 text__center">
+    <td class="w__50 text__center">
       <table>
         <tr>
           <%= @patient&.qr_generate %>

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!, except: %i[index] 
   before_action :find_patient, only: %i[invoice report]
+  before_action :find_invoice_procedure, only: %i[report]
   before_action :get_patient_by_case_id_and_patient_id, only: %i[view_report]
 
   def index; end
@@ -10,6 +11,7 @@ class HomeController < ApplicationController
   end
 
   def invoice
+    @tests = @patient.patient_procedures
     respond_to do |format|
       format.html
       format.pdf { 
@@ -50,6 +52,9 @@ class HomeController < ApplicationController
     end
   end
 
+  def download_report
+  end
+
   def view_report
     unless @patient.present?
       redirect_to :root
@@ -64,5 +69,9 @@ class HomeController < ApplicationController
 
   def get_patient_by_case_id_and_patient_id
     @patient = Patient.find_by_case_id_and_patient_id(params[:patient_id], params[:case_id])
+  end
+
+  def find_invoice_procedure
+    @procedure ||= Procedure.find(params[:test_id])
   end
 end

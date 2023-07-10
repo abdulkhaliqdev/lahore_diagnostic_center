@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
     resources :procedures
     resources :users
+    resources :patient_procedures, only: %i[edit update]
 
     root 'admin#dashboard'
   end
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   get '/report', to: 'home#report'
   get '/invoice', to: 'home#invoice'
   get '/view_report', to: 'home#view_report'
+  get '/download_report', to: 'home#download_report'
 
   root 'home#index'
 end

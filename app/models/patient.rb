@@ -1,7 +1,8 @@
 class Patient < ApplicationRecord
   include ImageUploader::Attachment(:image)
 
-  has_many :patient_procedures
+  has_many :patient_procedures, dependent: :destroy
+  has_many :procedures, through: :patient_procedures
   accepts_nested_attributes_for :patient_procedures, allow_destroy: true, reject_if: :all_blank
 
   has_one :referrer
@@ -37,9 +38,10 @@ class Patient < ApplicationRecord
   end
 
   def bill
-    bill = self.patient_procedures.pluck('SUM(price)').first
+    sum = 0
+    self.patient_procedures.each {|obj| obj.price.present? ? (sum += obj.price) : (sum += obj.procedure.price)}
 
-    bill.nil? ? 0 : bill
+    sum.nil? ? 0 : sum
   end
 
   def done_status

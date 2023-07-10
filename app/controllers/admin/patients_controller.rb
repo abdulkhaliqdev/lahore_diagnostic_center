@@ -1,14 +1,8 @@
 class Admin::PatientsController < Admin::BaseController
-  before_action :find_patient, only: [:invoice, :edit, :update, :show]
+  before_action :find_patient, only: [:invoice, :edit, :update, :show, :destroy]
 
   def index
     @patients    = Patient.all.order(created_at: :desc)
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: 'Invoices'
-      end
-    end
   end
 
   def new
@@ -20,10 +14,12 @@ class Admin::PatientsController < Admin::BaseController
   def create    
     @patient = Patient.new(patient_params)
 
-    if @patient.save
-      redirect_to admin_dashboard_index_path
-    else
-      redirect_to :new
+    ActiveRecord::Base.transaction do
+      if @patient.save
+        redirect_to admin_dashboard_index_path
+      else
+        redirect_to :new
+      end
     end
   end
 
@@ -40,7 +36,7 @@ class Admin::PatientsController < Admin::BaseController
   end
   
   def show
-    @procedures = Procedure.all
+    @test_list = @patient.patient_procedures
   end
 
   def search
@@ -50,20 +46,10 @@ class Admin::PatientsController < Admin::BaseController
   end
 
   def destroy
-  end
+    if @patient.destroy
+      flash[:notice] = 'Patient Deleted Successfully.'
 
-  def invoice
-    respond_to do |format|
-      format.html
-      format.pdf { 
-        render template: 'admin/patients/invoice', 
-               pdf: "#{@patient.name}",
-               formats: [:html],
-               disposition: :inline,
-               layout: 'pdf',
-               page_height: '12in',
-               page_width: '12in'
-            }
+      redirect_to admin_patients_path
     end
   end
 
@@ -83,6 +69,6 @@ class Admin::PatientsController < Admin::BaseController
   end
   
   def find_patient
-    @patient = Patient.find(params[:id])
+    @patient ||= Patient.find(params[:id])
   end
 end

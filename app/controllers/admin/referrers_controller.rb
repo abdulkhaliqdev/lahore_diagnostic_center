@@ -35,7 +35,7 @@ class Admin::ReferrersController < Admin::BaseController
   def show; end
 
   def destroy
-    if @referrer.save
+    if @referrer.destroy
       flash[:notice] = 'Referrer Destroy Successfully.'
 
       redirect_to admin_referrers_path

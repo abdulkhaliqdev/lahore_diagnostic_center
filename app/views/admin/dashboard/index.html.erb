@@ -8,7 +8,7 @@
             <th>Patient Name</th>
             <th>Cost</th>
             <th>Status</th>
-            <th>Invoice</th>
+            <th>Show Page</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -21,7 +21,7 @@
               <td><%= patient&.bill %></td>
               <td><span class="badge bg-label-primary me-1">Uncompleted</span></td>
               <td>
-                <%= link_to "Print", report_path(id: patient.id, format: :pdf), class: 'btn btn-primary', target: '_blank' %>
+                <%= link_to "Show", admin_patient_path(patient), class: 'btn btn-primary' %>
               </td>
               <td>
                 <div class="dropdown position-relative">

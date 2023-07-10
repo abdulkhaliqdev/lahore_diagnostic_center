@@ -1,6 +1,7 @@
 class Procedure < ApplicationRecord
 
   has_many :patient_procedures
+  has_many :patients, through: :patient_procedures
 
   enum procedure_type: {
     'ultrasound': 'Ultrasound',

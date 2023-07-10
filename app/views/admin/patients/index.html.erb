@@ -34,7 +34,9 @@
                   </button>
                   <div class="dropdown-menu position-absolute">
                     <a class="dropdown-item" href="<%= edit_admin_patient_url(patient)%>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                    <a class="dropdown-item" href="javascript:void(0);">
+                      <%= link_to "Delete", admin_patient_path(patient), method: :delete, data: { confirm: "Are you sure you want to delete this Patient?" } %>
+                    </a>
                   </div>
                 </div>
               </td>

@@ -14,10 +14,7 @@ class Admin::PatientProceduresController < Admin::BaseController
   private
 
   def patient_params
-    params.require(:patient_procedure).permit(
-      :price,
-      :content
-    )
+    params.require(:patient_procedure).permit(:content, :done)
   end
 
   def find_patient_procedure

@@ -7,15 +7,22 @@
     <div class="card mb-4">
       <h5 class="card-header">Patient</h5>
       <div class="card-body demo-vertical-spacing demo-only-element">
-        <%= form_for [:admin, @referrer] do |form| %>
+        <%= form_for [:admin, @procedure] do |form| %>
+
           <div class='mb-3'>
-            <%= form.label 'Doctor Name', class: 'form-label' %>
-            <%= form.text_field :doctor_name, required:true, placeholder: 'Doctor Name', class: 'form-control' %>
+            <%= form.label 'Procedure Type', class: 'form-label' %>
+            <%= form.select :procedure_type, options_for_select(Procedure.procedure_types.keys.map { |key| [key.titleize, key] }, params[:procedure_type]), { prompt: 'Select Procedure Type' }, class: "form-select" %>
+          </div>
+
+
+          <div class='mb-3'>
+            <%= form.label 'Title', class: 'form-label' %>
+            <%= form.text_field :title, required: true, placeholder: 'Title', class: 'form-control' %>
           </div>
 
           <div class='mb-3'>
-            <%= form.label 'Hospital Name', class: 'form-label' %>
-            <%= form.text_field :hospital_name, required:true, placeholder: 'Hospital Name', class: 'form-control' %>
+            <%= form.label 'Price', class: 'form-label' %>
+            <%= form.number_field :price, required: true, placeholder: 'Price', class: 'form-control' %>
           </div>
 
           <div class="sub-btn my-3 d-flex justify-content-end">

@@ -16,5 +16,3 @@ test:
 production:
   <<: *default
   database: lahore_diagnostic_center_production
-  username: lahore_diagnostic_center
-  password: <%= ENV["LAHORE_DIAGNOSTIC_CENTER_DATABASE_PASSWORD"] %>

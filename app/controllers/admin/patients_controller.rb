@@ -2,7 +2,7 @@ class Admin::PatientsController < Admin::BaseController
   before_action :find_patient, only: [:invoice, :edit, :update, :show, :destroy]
 
   def index
-    @patients    = Patient.all.order(created_at: :desc)
+    @patients    = Patient.completed.order(created_at: :desc)
   end
 
   def new

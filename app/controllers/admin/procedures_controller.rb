@@ -1,6 +1,6 @@
 class Admin::ProceduresController < Admin::BaseController
   def index
-    @procedures = Procedure.all
+    @procedures = Procedure.order(created_at: :desc)
   end
 
   def new
@@ -8,11 +8,11 @@ class Admin::ProceduresController < Admin::BaseController
   end
   
   def create
-    @procedure  = Procedure.new(referrer_params)
+    @procedure  = Procedure.new(procedure_params)
     if @procedure.save
       flash[:notice] = 'Procedure Created Successfully.'
 
-      redirect_to admin_referrers_path
+      redirect_to admin_procedures_path
     else
       render :new
     end
@@ -21,7 +21,7 @@ class Admin::ProceduresController < Admin::BaseController
   def edit; end
 
   def update
-    if @procedure.save
+    if @procedure.update(procedure_params)
       flash[:notice] = 'Procedure Update Successfully.'
 
       redirect_to admin_referrers_path
@@ -42,8 +42,8 @@ class Admin::ProceduresController < Admin::BaseController
 
   private
 
-  def referrer_params
-    params.require(:procedure).permit(:doctor_name, :hospital_name)
+  def procedure_params
+    params.require(:procedure).permit(:procedure_type, :title, :price)
   end
   
   def find_referrer

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!, except: %i[index] 
-  before_action :find_patient, only: %i[invoice report]
-  before_action :find_invoice_procedure, only: %i[report]
+  before_action :find_patient, only: %i[invoice report download_report]
+  before_action :find_invoice_procedure, only: %i[report download_report]
   before_action :get_patient_by_case_id_and_patient_id, only: %i[view_report]
 
   def index; end
@@ -53,6 +53,24 @@ class HomeController < ApplicationController
   end
 
   def download_report
+    # attachment
+    respond_to do |format|
+      format.pdf {
+        render template: 'home/download_report',
+          pdf: "#{@patient.name}",
+          formats: [:html],
+          disposition: :inline,
+          layout: 'pdf',
+          page_size: 'Letter',
+          footer:  {   
+            html: {   
+              template:'shared/footer',
+              formats: [:html],
+              layout:  'pdf'
+            }
+          }
+        }
+    end
   end
 
   def view_report
@@ -72,6 +90,6 @@ class HomeController < ApplicationController
   end
 
   def find_invoice_procedure
-    @procedure ||= Procedure.find(params[:test_id])
+    @procedure ||= PatientProcedure.find(params[:test_id])
   end
 end

@@ -310,7 +310,6 @@ PLATFORMS
 
 DEPENDENCIES
   actiontext (~> 7.0)
-  activestorage (~> 7.0)
   bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap
   bootstrap-sass (~> 3.4)

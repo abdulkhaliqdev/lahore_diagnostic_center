@@ -15,18 +15,24 @@
 
           <div class='mb-3'>
             <%= form.label 'Patient Name', class: 'form-label' %>
-            <%= form.text_field :name, required:true, placeholder: 'Paitent Name', class: 'form-control' %>
+            <%= form.text_field :name, required: true, placeholder: 'Paitent Name', class: 'form-control' %>
           </div>
 
           <div class='mb-3'>
             <%= form.label 'Father/Husband', class: 'form-label' %>
-            <%= form.text_field :father_husband, required:true, placeholder: 'Father/Husband', class: 'form-control' %>
+            <%= form.text_field :father_husband, placeholder: 'Father/Husband', class: 'form-control' %>
           </div>
+
+          <div class='mb-3'>
+            <%= form.label 'Phone Number', class: 'form-label' %>
+            <%= form.text_field :phone_number, placeholder: 'Phone Number', class: 'form-control' %>
+          </div>
+
 
           <div class='row mb-3'>
             <div class='col-6'>
               <%= form.label 'Age', class: 'form-label' %>
-              <%= form.number_field :age, required:true, placeholder: 'Age', class: 'form-control' %>
+              <%= form.number_field :age, placeholder: 'Age', class: 'form-control' %>
             </div>
 
             <div class='col-6'>
@@ -42,7 +48,7 @@
 
           <div>
             <%= form.label 'Address', class: 'form-label' %>
-            <%= form.text_field :address, required:true, placeholder: 'Address', class: 'form-control' %>
+            <%= form.text_field :address, placeholder: 'Address', class: 'form-control' %>
           </div>
 
           <div class="row border border-1 my-4 mx-1 rounded py-3 justify-content-end" id='patient_procedures'>

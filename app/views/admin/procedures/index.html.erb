@@ -17,13 +17,17 @@
         <tbody class="table-border-bottom-0">
           <% @procedures.each do |procedure| %>
             <tr>
-              <td class='d-flex'>
+              <td style="width: 20px;">
                 <strong><%= procedure&.title %></strong>
               </td>
-              <td><span class="badge bg-label-primary me-1"><%= procedure&.procedure_type%></span></td>
-              <td><%= procedure&.price %></td>
               <td>
-              <div class="dropdown position-relative">
+                <span class="badge bg-label-primary me-1"><%= procedure&.procedure_type %></span>
+              </td>
+              <td>
+                <%= procedure&.price %>    
+              </td>
+              <td>
+                <div class="dropdown position-relative">
                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                     <div class='btn btn-primary'>menu</div>
                   </button>

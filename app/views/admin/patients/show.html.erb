@@ -40,6 +40,7 @@
           <th>Cost</th>
           <th>Status</th>
           <th>Print</th>
+          <th>Check</th>
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
@@ -49,9 +50,13 @@
               <strong><%= test&.procedure&.title %></strong>
             </td>
             <td><%= test&.get_test_price %></td>
-            <td><span class="badge bg-label-primary me-1"><%#= test&.done_status %></span></td>
+
+            <td><span class="badge bg-label-primary me-1"><%= test&.done_status %></span></td>
             <td>
-              <%= link_to "Print", report_path(id: test&.patient_id, test_id: test&.procedure_id, format: :pdf), class: 'btn btn-primary', target: '_blank' %>
+              <%= link_to "Print", download_report_path(id: test&.patient_id, test_id: test&.id, format: :pdf), class: test&.done ? "btn btn-primary" : "btn btn-primary disabled", target: '_blank' %>
+            </td>
+            <td>
+              <%= link_to "Report", report_path(id: test&.patient_id, test_id: test&.id, format: :pdf), class: test&.done ? "btn btn-primary" : "btn btn-primary disabled", target: '_blank' %>
             </td>
             <td>
               <div class="dropdown position-relative">

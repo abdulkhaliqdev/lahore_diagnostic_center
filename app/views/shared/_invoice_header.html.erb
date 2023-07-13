@@ -1,6 +1,6 @@
 <table class= 'w__100 mt__0 mb__0'>
   <tr>
-    <td class='w__50 text__center'>
+    <td class='w__25 text__center'>
       <table>
         <tr>
           <%= image_tag wicked_pdf_asset_base64('logo'), width: 100 %>
@@ -17,17 +17,17 @@
       </table>
     <td>
 
-    <td class="user__details w__50">
+    <td class="user__details">
       <h2>PATIENT INFORMATION</h2>
       <hr />
       <table>
         <tr>
           <td class="colume__heading">NAME:</td>
-          <td><%= @patient&.name&.humanize %></td>
+          <td><%= @patient&.name&.titleize %></td>
         </tr>
         <tr>
           <td class="colume__heading">FATHER/HUSBAND</td>
-          <td><%= @patient&.father_husband&.humanize %></td>
+          <td><%= @patient&.father_husband&.titleize %></td>
         </tr>
         <tr>
           <td class="colume__heading">AGE</td>
@@ -47,23 +47,23 @@
         </tr>
         <tr>
           <td class="colume__heading">USER:</td>
-          <td> <%= @patient&.patient_prodcedure&.last&.user&.name&.humanize %></td>
+          <td> <%= @patient&.patient_procedures&.last&.user&.name&.titleize %></td>
         </tr>
       </table>
     </td>
 
-    <td class="w__50 text__center">
+    <td class="w__40 text__center">
       <table>
         <tr>
           <%= @patient&.qr_generate %>
         </tr>
         <tr>
-          <table class='text__end w__100'>
+          <table class='text__center w__100'>
             <tr>
-              <td><span class='colume__heading'>CASE NO: </span><%=@patient&.case_id%></td>
+              <td><span class='colume__heading'>CASE NO: <br/> </span><%= @patient&.case_id %></td>
             </tr>
             <tr>
-              <td><span class='colume__heading'>PATIENT NO: </span><%=@patient&.patient_id%></td>
+              <td><span class='colume__heading'>PATIENT NO:<br/> </span><%= @patient&.patient_id %></td>
             </tr>
           </table>
         </tr>

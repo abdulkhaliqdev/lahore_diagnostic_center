@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "content"
+    t.boolean "done", default: false
     t.index ["patient_id"], name: "index_patient_procedures_on_patient_id"
     t.index ["procedure_id"], name: "index_patient_procedures_on_procedure_id"
     t.index ["user_id"], name: "index_patient_procedures_on_user_id"
@@ -78,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
     t.datetime "updated_at", null: false
     t.bigint "referrer_id"
     t.text "image_data"
+    t.integer "phone_number"
     t.index ["referrer_id"], name: "index_patients_on_referrer_id"
   end
 

@@ -8,13 +8,9 @@
       <%= f.label 'Price', class: 'form-label' %>
       <%= f.number_field :price, placeholder: 'Price', class: 'form-control' %>
     </div>
+      <%= f.hidden_field :user_id, value: current_user.id %>
     <div>
-      <%= f.label 'Report', class: 'form-label' %>
-      <%= f.rich_text_area :content %>
+      <%= link_to_remove_association "Remove Test", f , class: "btn btn-outline-primary account-image-reset mt-4 mb-2 w-25 "%>
     </div>
-
-    <%= f.hidden_field :user_id, value: current_user.id %>
-
-    <%= link_to_remove_association "Remove Test", f , class: "btn btn-outline-primary account-image-reset mt-4 mb-2 w-25 "%>
   </div>
 </div>

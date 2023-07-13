@@ -14,7 +14,6 @@
 	padding: 30px;
 }
 
-
 .main__pdf {
 	position: relative;
 }
@@ -74,6 +73,10 @@
 
 .colume__heading {
 	color: #797979;
+}
+
+.word__nowrap {
+	word: nowrap;
 }
 
 .pl-12 {
@@ -191,4 +194,8 @@
 
 .w__10 {
 	width: 13%;
+}
+
+.w__25 {
+	width: 30%;
 }

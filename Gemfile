@@ -91,8 +91,6 @@ gem "trix", "~> 0.10.1"
 
 gem "figaro", "~> 1.2"
 
-gem "activestorage", "~> 7.0"
-
 gem "bootstrap-sass", "~> 3.4"
 
 gem "stackprof", "~> 0.2.25"

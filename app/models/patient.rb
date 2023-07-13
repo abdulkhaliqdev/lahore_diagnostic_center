@@ -1,6 +1,4 @@
 class Patient < ApplicationRecord
-  include ImageUploader::Attachment(:image)
-
   has_many :patient_procedures, dependent: :destroy
   has_many :procedures, through: :patient_procedures
   accepts_nested_attributes_for :patient_procedures, allow_destroy: true, reject_if: :all_blank
@@ -25,7 +23,8 @@ class Patient < ApplicationRecord
   end
 
   def qr_generate
-    qrcode = RQRCode::QRCode.new("https://kyan.com/?patient_id=#{self.patient_id}&case_id=#{self.case_id}", size: 4, level: :m)
+    url = "https://lahorediagnosticcenter.com/?patient_id=#{self.patient_id}&case_id=#{self.case_id}"
+    qrcode = RQRCode::QRCode.new(url, size: 5, level: :m)
     svg = qrcode.as_svg(
           color: "000",
           shape_rendering: "crispEdges",

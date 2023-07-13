@@ -1,0 +1,32 @@
+<h4 class="fw-bold py-3 mb-4">
+  <span class="text-muted fw-light">Referrer /</span> Form
+</h4>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card mb-4">
+      <h5 class="card-header">Patient</h5>
+      <div class="card-body demo-vertical-spacing demo-only-element">
+        <%= form_for [:admin, @user] do |form| %>
+          <div class='mb-3'>
+            <%= form.label :name, class: 'form-label' %>
+            <%= form.text_field :name, required: true, placeholder: 'Name', class: 'form-control' %>
+          </div>
+
+          <div class='mb-3'>
+            <%= form.label :email, class: 'form-label' %>
+            <%= form.text_field :email, required: true, placeholder: 'Email', class: 'form-control' %>
+          </div>
+
+          <div class='mb-3'>
+            <%= form.label :password, class: 'form-label' %>
+            <%= form.password_field :password, required: true, placeholder: 'Password', class: 'form-control' %>
+          </div>
+          <div class="sub-btn my-3 d-flex justify-content-end">
+            <%= form.submit class: 'btn btn-success'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

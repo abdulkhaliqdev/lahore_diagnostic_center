@@ -18,9 +18,11 @@
             <% @referrers&.each do |referrer| %>
               <tr>
                 <td>
-                  <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%= referrer&.doctor_name %></strong>
+                  <strong><%= referrer&.doctor_name %></strong>
                 </td>
-                <td><span class="badge bg-label-primary me-1"><%= referrer&.hospital_name%></span></td>
+                <td>
+                  <span class="badge bg-label-primary me-1"><%= referrer&.hospital_name%></span>
+                </td>
                 <td>
                   <%= link_to 'Show', admin_referrer_path(referrer.id), class: 'btn btn-primary' %>
                 </td>

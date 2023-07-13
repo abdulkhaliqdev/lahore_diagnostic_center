@@ -11,7 +11,8 @@ class Admin::ReferrersController < Admin::BaseController
   
   def create
     @referrer  = Referrer.new(referrer_params)
-    if @referrer.save
+
+    if @referrer.save(validate: false)
       flash[:notice] = 'Referrer Created Successfully.'
 
       redirect_to admin_referrers_path

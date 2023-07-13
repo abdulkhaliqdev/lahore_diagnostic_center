@@ -1,25 +1,8 @@
-<div class='text__center w__100'>
-  <h1 class='page_title'>LAHORE DIAGNOSTIC CENTER</h1>
-</div>
+<div class='text__center w__100', style="height: 50.5px;"></div>
 
 <table class= 'w__100 mt__0 mb__0'>
   <tr>
-    <td class='text__center'>
-      <table>
-        <tr>
-          <%= image_tag wicked_pdf_asset_base64('logo'), width: 100 %>
-        </tr>
-        <hr />
-        <tr>
-          <div class='text__start doctor__container mt__30 mb__0'>
-            <h2 class='mb__0 mt__0 doctor__name'>Dr. Usman Amjad</h4>
-            <p class='mb__0 mt__0'>MBBS FCPS(Radiology)</p>
-            <p class='mb__0 mt__0'>Consultant Radiology</p>
-            <p class='mb__0 mt__0'>DHQ South City Hospital Okara</p>
-          </div>
-        </tr>
-      </table>
-    <td>
+    <td class='text__center' style="width: 27.5%;"><td>
 
     <td class="user__details">
       <h2>PATIENT INFORMATION</h2>
@@ -39,7 +22,7 @@
         </tr>
         <tr>
           <td class="colume__heading">PHONE</td>
-          <td>-------------</td>
+          <td> <%= @patient&.phone_number %></td>
         </tr>
         <tr>
           <td class="colume__heading">ADDRESS</td>
@@ -51,7 +34,7 @@
         </tr>
         <tr>
           <td class="colume__heading">USER:</td>
-          <td>--------</td>
+          <td> <%= @patient&.patient_procedures&.last&.user&.name&.humanize %></td>
         </tr>
       </table>
     </td>

@@ -39,7 +39,7 @@
         </tr>
         <tr>
           <td class="colume__heading">PHONE</td>
-          <td>-------------</td>
+          <td> <%= @patient&.phone_number %></td>
         </tr>
         <tr>
           <td class="colume__heading">ADDRESS</td>
@@ -51,7 +51,7 @@
         </tr>
         <tr>
           <td class="colume__heading">USER:</td>
-          <td>--------</td>
+          <td> <%= @patient&.patient_procedures&.last&.user&.name&.humanize %></td>
         </tr>
       </table>
     </td>

@@ -1,0 +1,38 @@
+upstream app {
+  server unix:/home/deploy/lahore_diagnostic_center/tmp/sockets/puma.sock;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name lahorediagnosticcenter.com www.lahorediagnosticcenter.com;
+    include snippets/self-signed.conf;
+    include snippets/ssl-params.conf;
+    root /home/deploy/lahore_diagnostic_center/public;
+    index index.html index.htm index.nginx-debian.html;
+    
+    location / {
+        try_files $uri/index.html $uri @app;
+    }
+
+    location @app {
+        proxy_pass http://localhost:3000;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        access_log /home/deploy/lahore_diagnostic_center/log/nginx.access.log;
+        error_log /home/deploy/lahore_diagnostic_center/log/nginx.error.log;
+    }
+
+    location ~* ^/assets/ {
+        expires 1y;
+        add_header Cache-Control public;
+        add_header Last-Modified "";
+        add_header ETag "";
+        break;
+    }
+
+    error_page 500 502 503 504 /500.html;
+    client_max_body_size 4G;
+    keepalive_timeout 10;
+}

@@ -18,6 +18,11 @@ default: &default
   # Extract and emit a css file
   extract_css: false
 
+  additional_paths:
+    - app/assets
+    - app/javascript
+    - node_modules
+
   static_assets_extensions:
     - .jpg
     - .jpeg

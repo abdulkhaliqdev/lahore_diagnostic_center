@@ -3,7 +3,7 @@ class Patient < ApplicationRecord
   has_many :procedures, through: :patient_procedures
   accepts_nested_attributes_for :patient_procedures, allow_destroy: true, reject_if: :all_blank
 
-  has_one :referrer
+  belongs_to :referrer
   
   before_create :generate_patient_and_case_id
 

@@ -1,4 +1,4 @@
-class CreatePatients < ActiveRecord::Migration[7.0]
+class CreatePatients < ActiveRecord::Migration[6.1]
   def change
     create_table :patients do |t|
       t.string  :patient_id,      null: false, default: ""

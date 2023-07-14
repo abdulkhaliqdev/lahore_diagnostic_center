@@ -18,7 +18,7 @@ class Admin::PatientsController < Admin::BaseController
       if @patient.save
         redirect_to admin_dashboard_index_path
       else
-        redirect_to :new
+        render :new
       end
     end
   end
@@ -31,7 +31,7 @@ class Admin::PatientsController < Admin::BaseController
     if @patient.update(patient_params)
       redirect_to admin_dashboard_index_path
     else
-      redirect_to :new
+      render :new
     end
   end
   
@@ -64,6 +64,7 @@ class Admin::PatientsController < Admin::BaseController
       :address,
       :referrer_id,
       :done,
+      :phone_number,
       patient_procedures_attributes: %i[id price procedure_id content receptionist_id user_id _destroy]
     )
   end

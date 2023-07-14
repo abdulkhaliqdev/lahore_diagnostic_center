@@ -1,3 +1,3 @@
 class Referrer < ApplicationRecord
-  belongs_to :patient  
+  has_many :patient  
 end

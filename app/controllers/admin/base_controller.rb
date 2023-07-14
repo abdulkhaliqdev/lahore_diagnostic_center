@@ -4,7 +4,7 @@ class Admin::BaseController < ApplicationController
 
   private
 
-    def user_authenticate
-      redirect_to root_path, alert: 'Unauthorized User!' unless current_user.admin?
-    end
+  def user_authenticate
+    redirect_to root_path, alert: 'Unauthorized User!' unless current_user.admin?
+  end
 end

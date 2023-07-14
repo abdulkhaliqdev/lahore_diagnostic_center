@@ -1,78 +1,55 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.0"
+ruby '2.7.2'
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4", ">= 7.0.4.3"
-
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
-
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
-
-# Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
-
-gem 'turbolinks', '~> 5'
-
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
-
-gem "sass-rails", "~> 6.0"
+gem 'pg', '~> 1.1'
+# Use Puma as the app server
+gem 'puma', '~> 5.0'
+# Use SCSS for stylesheets
+gem 'sass-rails', '>= 6'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
-gem "devise", "~> 4.9"
-gem 'cocoon', '~> 1.2', '>= 1.2.15'
-gem "momentjs-rails", "~> 2.29"
-
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+# gem 'redis', '~> 4.0'
+# Use Active Model has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+# Use Active Storage variant
+# gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
-
-# Use Sass to process CSS
-gem "sassc-rails"
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 1.2"
+gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'pry'
-  gem "capistrano", "~> 3.17",                   require: false
-  gem "capistrano-rails", "~> 1.6",              require: false
-  gem 'capistrano-bundler', '~> 2.0',            require: false
-  gem 'capistrano-rvm',                          require: false
-  gem 'capistrano3-puma',                        require: false
-
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
+  # Display performance information such as SQL time and flame graphs for each request in your browser.
+  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-  #Dependencies For cap deploy
-  gem 'net-ssh', '>= 6.0.2'
-  gem 'ed25519', '>= 1.2', '< 2.0'
-  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+  gem 'pry'
 end
 
-
-
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "devise", "~> 4.9"
+gem 'cocoon', '~> 1.2', '>= 1.2.15'
+gem "momentjs-rails", "~> 2.29"
 gem "jquery-rails", "~> 4.5"
 gem "rqrcode", "~> 2.1"
 gem "shrine", "~> 3.4"
@@ -83,14 +60,10 @@ gem "wkhtmltopdf-heroku", group: :production
 gem "prawn-html", "~> 0.7.1"
 gem "matrix", "~> 0.4.2"
 gem "prawn", "~> 2.4"
-
-
-gem "actiontext", "~> 7.0"
-
+gem "actiontext"
 gem "trix", "~> 0.10.1"
-
 gem "figaro", "~> 1.2"
-
 gem "bootstrap-sass", "~> 3.4"
-
 gem "stackprof", "~> 0.2.25"
+
+gem "sprockets-rails", "~> 3.4"

@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
+ActiveRecord::Schema.define(version: 2023_05_21_230243) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,8 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
     t.text "body"
     t.string "record_type", null: false
     t.bigint "record_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
@@ -29,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: 6, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -42,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum"
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: 6, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -53,17 +54,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
   end
 
   create_table "patient_procedures", force: :cascade do |t|
-    t.bigint "patient_id", null: false
-    t.bigint "procedure_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "patients_id", null: false
+    t.bigint "procedures_id", null: false
+    t.bigint "users_id", null: false
     t.integer "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.text "content"
     t.boolean "done", default: false
-    t.index ["patient_id"], name: "index_patient_procedures_on_patient_id"
-    t.index ["procedure_id"], name: "index_patient_procedures_on_procedure_id"
-    t.index ["user_id"], name: "index_patient_procedures_on_user_id"
+    t.index ["patients_id"], name: "index_patient_procedures_on_patients_id"
+    t.index ["procedures_id"], name: "index_patient_procedures_on_procedures_id"
+    t.index ["users_id"], name: "index_patient_procedures_on_users_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -75,11 +76,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
     t.integer "age"
     t.string "address", default: ""
     t.boolean "done", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "referrer_id"
     t.text "image_data"
-    t.integer "phone_number"
+    t.string "phone_number", default: ""
     t.index ["referrer_id"], name: "index_patients_on_referrer_id"
   end
 
@@ -87,15 +88,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
     t.string "procedure_type", null: false
     t.string "title", null: false
     t.integer "price", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "referrers", force: :cascade do |t|
     t.string "doctor_name"
     t.string "hospital_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,15 +107,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_230243) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "patient_procedures", "patients"
-  add_foreign_key "patient_procedures", "procedures"
-  add_foreign_key "patient_procedures", "users"
+  add_foreign_key "patient_procedures", "patients", column: "patients_id"
+  add_foreign_key "patient_procedures", "procedures", column: "procedures_id"
+  add_foreign_key "patient_procedures", "users", column: "users_id"
 end

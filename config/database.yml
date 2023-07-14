@@ -14,5 +14,10 @@ test:
   database: lahore_diagnostic_center_test
 
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
   database: lahore_diagnostic_center_production
+  port: 5432
+  host: 'lahorediagnosticcenterproduction.cbohcd2zljz0.ap-southeast-1.rds.amazonaws.com'

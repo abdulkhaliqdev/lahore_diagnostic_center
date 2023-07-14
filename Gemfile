@@ -67,3 +67,5 @@ gem "bootstrap-sass", "~> 3.4"
 gem "stackprof", "~> 0.2.25"
 
 gem "sprockets-rails", "~> 3.4"
+
+gem "uglifier", "~> 4.2"

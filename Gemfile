@@ -69,3 +69,5 @@ gem "stackprof", "~> 0.2.25"
 gem "sprockets-rails", "~> 3.4"
 
 gem "uglifier", "~> 4.2"
+
+gem "net-http", "~> 0.3.2"

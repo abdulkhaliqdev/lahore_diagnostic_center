@@ -1,5 +1,5 @@
 class Receptionist::PatientsController < Receptionist::BaseController
-  before_action :find_patient, only: [:invoice]
+  before_action :find_patient, only: [:invoice, :edit, :update, :show, :destroy]
 
   def index
     @patients    = Patient.all.order(created_at: :desc)
@@ -28,12 +28,19 @@ class Receptionist::PatientsController < Receptionist::BaseController
   end
 
   def edit
+    @procedures = Procedure.all
   end
-
+  
   def update
+    if @patient.update!(patient_params)
+      redirect_to admin_dashboard_index_path
+    else
+      render :edit
+    end
   end
-
+  
   def show
+    @test_list = @patient.patient_procedures
   end
 
   def search

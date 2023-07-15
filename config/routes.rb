@@ -35,6 +35,9 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :referrers
+    resources :procedures
+    resources :patient_procedures, only: %i[edit update]
     root 'receptionist#dashboard'
   end
 

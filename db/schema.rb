@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_21_230243) do
+ActiveRecord::Schema.define(version: 2023_07_15_063135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,17 +54,17 @@ ActiveRecord::Schema.define(version: 2023_05_21_230243) do
   end
 
   create_table "patient_procedures", force: :cascade do |t|
-    t.bigint "patients_id", null: false
-    t.bigint "procedures_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "patient_id", null: false
+    t.bigint "procedure_id", null: false
+    t.bigint "user_id", null: false
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "content"
     t.boolean "done", default: false
-    t.index ["patients_id"], name: "index_patient_procedures_on_patients_id"
-    t.index ["procedures_id"], name: "index_patient_procedures_on_procedures_id"
-    t.index ["users_id"], name: "index_patient_procedures_on_users_id"
+    t.index ["patient_id"], name: "index_patient_procedures_on_patient_id"
+    t.index ["procedure_id"], name: "index_patient_procedures_on_procedure_id"
+    t.index ["user_id"], name: "index_patient_procedures_on_user_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2023_05_21_230243) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "patient_procedures", "patients", column: "patients_id"
-  add_foreign_key "patient_procedures", "procedures", column: "procedures_id"
-  add_foreign_key "patient_procedures", "users", column: "users_id"
+  add_foreign_key "patient_procedures", "patients"
+  add_foreign_key "patient_procedures", "procedures"
+  add_foreign_key "patient_procedures", "users"
 end

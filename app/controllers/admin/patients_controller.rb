@@ -11,11 +11,11 @@ class Admin::PatientsController < Admin::BaseController
     @patient.patient_procedures.build
   end
   
-  def create    
+  def create
     @patient = Patient.new(patient_params)
 
     ActiveRecord::Base.transaction do
-      if @patient.save
+      if @patient.save!
         redirect_to admin_dashboard_index_path
       else
         render :new
@@ -27,11 +27,11 @@ class Admin::PatientsController < Admin::BaseController
     @procedures = Procedure.all
   end
   
-  def update    
-    if @patient.update(patient_params)
+  def update
+    if @patient.update!(patient_params)
       redirect_to admin_dashboard_index_path
     else
-      render :new
+      render :edit
     end
   end
   

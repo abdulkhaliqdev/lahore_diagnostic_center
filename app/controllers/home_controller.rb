@@ -59,7 +59,7 @@ class HomeController < ApplicationController
         render template: 'home/download_report',
           pdf: "#{@patient.name}",
           formats: [:html],
-          disposition: :inline,
+          disposition: :attachment,
           layout: 'pdf',
           page_size: 'Letter',
           footer:  {   

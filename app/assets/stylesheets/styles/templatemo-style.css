@@ -4,7 +4,7 @@ http://www.templatemo.com/preview/templatemo_450_awesome
 */
 
 body {
-    background: #2F53A3;
+    background-image: linear-gradient(to right, #71BBAA, #2F53A3);
     color: #ffffff;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 400;
@@ -28,7 +28,7 @@ h2 {
 }
 
     h2 span {
-        color: #71BBAA;
+        color: #2F53A3;
         font-weight: bold;
     }
 /* end h2 */
@@ -41,96 +41,9 @@ h2 {
 }
 /* end about team service portfolio contact */
 
-/* start preloader */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 99999;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-flow: row nowrap;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    background: none repeat scroll 0 0 #ffffff;
-}
-
-.sk-spinner-wave.sk-spinner {
-    width: 50px;
-    height: 30px;
-    text-align: center;
-    font-size: 10px;
-}
-
-.sk-spinner-wave div {
-    background-color: #2F53A3;
-    height: 100%;
-    width: 6px;
-    display: inline-block;
-    -webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
-    animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
-}
-
-.sk-spinner-wave .sk-rect2 {
-    -webkit-animation-delay: -1.1s;
-    animation-delay: -1.1s;
-}
-
-.sk-spinner-wave .sk-rect3 {
-    -webkit-animation-delay: -1s;
-    animation-delay: -1s;
-}
-
-.sk-spinner-wave .sk-rect4 {
-    -webkit-animation-delay: -0.9s;
-    animation-delay: -0.9s;
-}
-
-.sk-spinner-wave .sk-rect5 {
-    -webkit-animation-delay: -0.8s;
-    animation-delay: -0.8s;
-}
-
-@-webkit-keyframes sk-waveStretchDelay {
-    0%, 40%, 100% {
-        -webkit-transform: scaleY(0.4);
-        transform: scaleY(0.4);
-    }
-
-    20% {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-    }
-}
-
-@keyframes sk-waveStretchDelay {
-    0%, 40%, 100% {
-        -webkit-transform: scaleY(0.4);
-        transform: scaleY(0.4);
-    }
-
-    20% {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-    }
-}
-/* end preloader */
-
 /* start header */
 header {
-    background-image: linear-gradient(to right, #2F53A3, #71BBAA);
+    background-image: linear-gradient(to right, #71BBAA, #2F53A3);
     min-height: 20px;
     padding-top: 17px;
     padding-bottom: 17px;
@@ -185,7 +98,7 @@ header {
     }
 
     .navbar-light .navbar-nav > li > a.current {
-        background: #71BBAA;
+        background: #2F53A3;
         color: white !important;
     }
 
@@ -232,13 +145,13 @@ header {
     }
 
         #home h1 span {
-            color: #71BBAA;
+            color: #2F53A3;
             font-weight: bold;
         }
 
     #home .btn {
-        border-color: #2F53A3;
-        background: #2F53A3;
+        border-color: #71BBAA;
+        background: #71BBAA;
         border-radius: 2px;
         color: white;
         font-size: 16px;
@@ -251,8 +164,8 @@ header {
     }
 
         #home .btn:hover {
-            background: #71BBAA;
-            border-color: #71BBAA;
+            background: #2F53A3;
+            border-color: #2F53A3;
             color: white;
             border-color: transparent;
         }
@@ -265,11 +178,11 @@ header {
 }
 
 .blue {
-    color: #2F53A3 !important;
+    color: #71BBAA !important;
 }
 
 .green {
-    color: #71BBAA !important;
+    color: #2F53A3 !important;
 }
 /* end home */
 
@@ -302,12 +215,13 @@ header {
 /* start team */
 #team .team-wrapper .img-wrapper {
     width: 100%;
-    background: white;
+    background: transparent;
     text-align: center;
 }
 
 #team .team-wrapper {
-    background: #404040;
+    background: transparent;
+    border: 1px solid #2F53A3;
     margin-bottom: 10px;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
@@ -316,7 +230,7 @@ header {
 
     #team .team-wrapper:hover {
         cursor: pointer;
-        opacity: 0.4;
+        opacity: 0.7;
         bottom: 4px;
     }
 
@@ -325,7 +239,7 @@ header {
     }
 
         #team .team-wrapper .team-des span {
-            color: #28a7e9;
+            color: #71BBAA;
             display: block;
             font-weight: bold;
             padding-bottom: 12px;
@@ -339,11 +253,11 @@ header {
 }
 
 #service .card:hover {
-    background: #71BBAA !important;
+    background: #28a7e9 !important;
 }
 
 #service .active {
-    background: #71BBAA;
+    background: #28a7e9;
     padding: 40px;
 }
 
@@ -421,7 +335,7 @@ header {
 
 .tld-form .form-control {
     background: transparent;
-    border: 1px solid #71BBAA;
+    border: 1px solid #28a7e9;
     border-radius: 2px;
     box-shadow: none;
     color: #fff;
@@ -442,15 +356,15 @@ header {
 
 .tld-form .k-datepicker .k-input,
 .tld-form .k-dropdown .k-state-default {
-    border-color: #71BBAA !important;
+    border-color: #28a7e9 !important;
     background-position: 50% 50%;
-    background-color: #2F53A3 !important;
+    background-color: #71BBAA !important;
     color: white !important;
 }
 
 .tld-form .k-picker-wrap.k-state-default {
-    border-color: #71BBAA !important;
-    background-color: #2F53A3 !important;
+    border-color: #2F53A3 !important;
+    background-color: #71BBAA !important;
     color: white !important;
 }
 
@@ -477,7 +391,7 @@ header {
 
     .tld-form input[type="button"] {
         background: transparent;
-        color: #71BBAA;
+        color: #2F53A3;
         font-weight: 500;
         -webkit-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
@@ -485,7 +399,7 @@ header {
 
     .tld-form-light input[type="button"] {
         background: transparent;
-        color: #71BBAA;
+        color: #2F53A3;
         font-weight: 500;
         -webkit-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
@@ -493,22 +407,22 @@ header {
 
     .tld-form input[type="button"]:hover {
         color: white;
-        background: #71BBAA;
+        background: #2F53A3;
     }
 
     .tld-form-light input[type="button"]:hover {
         color: white;
-        background: #71BBAA;
+        background: #2F53A3;
     }
 
 /* start contact */
 #contact {
-    background: #2F53A3;
+    background: transparent;
 }
 
     #contact .form-control {
         background: transparent;
-        border: 1px solid #71BBAA;
+        border: 1px solid #2F53A3;
         border-radius: 2px;
         box-shadow: none;
         color: #fff;
@@ -526,7 +440,7 @@ header {
 
         #contact input[type="submit"] {
             background: transparent;
-            color: #71BBAA;
+            color: #2F53A3;
             font-weight: bold;
             -webkit-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
@@ -607,7 +521,7 @@ header {
         }
 
             .social-icon li a:hover {
-                background: #71BBAA;
+                background: #2F53A3;
                 border-color: transparent;
             }
 /* end social icon */
@@ -776,11 +690,11 @@ header {
 }
 
 .navbar a {
-    color: #2F53A3;
+    color: #71BBAA;
 }
 
 .card {
-    border: 1px solid #71BBAA !important;
+    border: 1px solid #2F53A3 !important;
 }
 
 .card-body {
@@ -788,7 +702,7 @@ header {
 }
 
 .modal-header {
-    color: #2F53A3 !important;
+    color: #71BBAA !important;
     padding: 0.5rem 1rem !important;
 }
 
@@ -854,11 +768,11 @@ header {
 
 .k-toolbar .k-button {
     background: transparent;
-    color: #71BBAA;
+    color: #2F53A3;
     font-weight: bold;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
-    border: 1px solid #71BBAA !important;
+    border: 1px solid #2F53A3 !important;
 }
 
 .k-toolbar .k-grid-search {
@@ -866,14 +780,14 @@ header {
     background: transparent;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
-    border: 1px solid #71BBAA !important;
+    border: 1px solid #2F53A3 !important;
 }
 
 .k-toolbar .k-combobox {
     padding: 1px 0 1px !important;
     color: white !important;
     background: transparent;
-    border: 1px solid #71BBAA !important;
+    border: 1px solid #2F53A3 !important;
 }
 
     .k-toolbar .k-combobox .k-input {
@@ -890,12 +804,12 @@ header {
 }
 
 .k-toolbar .k-icon {
-    color: #71BBAA !important;
+    color: #2F53A3 !important;
 }
 
 .k-toolbar .k-button:hover {
     color: white !important;
-    background: #71BBAA;
+    background: #2F53A3;
 }
 
     .k-toolbar .k-button:hover .k-icon {
@@ -1004,13 +918,13 @@ input[type=number] {
 }
 
 .green-divider {
-    border-color: #71BBAA;
+    border-color: #2F53A3;
     margin-top: 2px;
     margin-bottom: 2px;
 }
 
 .blue-divider {
-    border-color: #2F53A3;
+    border-color: #71BBAA;
     margin-top: 2px;
     margin-bottom: 2px;
 }
@@ -1047,8 +961,8 @@ input[type=number] {
 
 .transparent .k-dropdown-wrap {
     color: white !important;
-    background: #2F53A3 !important;
-    border-color: #71BBAA !important;
+    background: #71BBAA !important;
+    border-color: #2F53A3 !important;
     height: 38px;
     line-height: 38px;
 }
@@ -1062,7 +976,7 @@ input[type=number] {
 .k-toolbar .k-picker-wrap {
     color: white !important;
     background: none !important;
-    border-color: #71BBAA !important;
+    border-color: #2F53A3 !important;
 }
 
 .k-chart text {
@@ -1079,8 +993,8 @@ input[type=number] {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #71BBAA !important;
-    border-color: #71BBAA !important;
+    background-color: #2F53A3 !important;
+    border-color: #2F53A3 !important;
 }
 
 .k-chart svg {
@@ -1109,7 +1023,7 @@ input[type=number] {
 }
 
 .list-group-item {
-    border: 1px solid #71BBAA !important;
+    border: 1px solid #2F53A3 !important;
     background-color: transparent !important;
     color: white !important;
 }
@@ -1145,13 +1059,13 @@ input[type=number] {
 }
 
 .popover {
-    border-color: #71BBAA !important;
+    border-color: #2F53A3 !important;
 }
 
 .popover-header {
-    background: #71BBAA !important;
+    background: #2F53A3 !important;
     color: white !important;
-    border-bottom-color: #71BBAA !important;
+    border-bottom-color: #2F53A3 !important;
 }
 
 .k-autocomplete > .k-clear-value, .k-dropdown-wrap > .k-clear-value {
@@ -1378,9 +1292,9 @@ label {
 }
 
 .k-checkbox:checked {
-    border-color: #2F53A3 !important;
+    border-color: #71BBAA !important;
     color: #fff;
-    background-color: #2F53A3 !important;
+    background-color: #71BBAA !important;
 }
 
 .k-checkbox {
@@ -1461,7 +1375,7 @@ label {
     color: inherit !important;
     background: white !important;
     font-size: 1rem !important;
-    border-color: #71BBAA !important;
+    border-color: #2F53A3 !important;
 }
 
 .white .k-datetimepicker .k-input {

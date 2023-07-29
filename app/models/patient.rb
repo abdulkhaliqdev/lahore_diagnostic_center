@@ -23,7 +23,7 @@ class Patient < ApplicationRecord
   end
 
   def qr_generate
-    url = "https://lahorediagnosticcenter.com/?patient_id=#{self.patient_id}&case_id=#{self.case_id}"
+    url = "https://lahorediagnosticcenter.com/report.pdf?patient_id=#{self.patient_id}&case_id=#{self.case_id}"
     qrcode = RQRCode::QRCode.new(url, size: 5, level: :m)
     svg = qrcode.as_svg(
           color: "000",
@@ -35,6 +35,28 @@ class Patient < ApplicationRecord
 
     svg.html_safe
   end
+
+  def generate_invoice_patient_and_case_id
+    year  = Date.today.year.to_s.last(2)
+    month = Date.today.month
+    self.patient_id = generate_id(year, month)
+    self.case_id    = generate_id(year, month)
+  end
+
+  def invoice_qr_generate
+    url = "https://lahorediagnosticcenter.com/?patient_id=#{self.patient_id}&case_id=#{self.case_id}"
+    qrcode = RQRCode::QRCode.new(url, size: 4, level: :m)
+    svg = qrcode.as_svg(
+          color: "000",
+          shape_rendering: "crispEdges",
+          module_size: 4,
+          standalone: true,
+          use_path: true
+        )
+
+    svg.html_safe
+  end
+
 
   def bill
     sum = 0

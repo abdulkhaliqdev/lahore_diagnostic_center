@@ -1,14 +1,10 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: %i[index] 
+  skip_before_action :authenticate_user!
   before_action :find_patient, only: %i[invoice report download_report]
   before_action :find_invoice_procedure, only: %i[report download_report]
   before_action :get_patient_by_case_id_and_patient_id, only: %i[view_report]
 
   def index; end
-
-  def report
-        
-  end
 
   def invoice
     @tests = @patient.patient_procedures
@@ -53,7 +49,6 @@ class HomeController < ApplicationController
   end
 
   def download_report
-    # attachment
     respond_to do |format|
       format.pdf {
         render template: 'home/download_report',

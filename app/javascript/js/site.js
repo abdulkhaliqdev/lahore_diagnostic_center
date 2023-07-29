@@ -257,25 +257,25 @@ $(function () {
 
     /* start typed element */
     //http://stackoverflow.com/questions/24874797/select-div-title-text-and-make-array-with-jquery
-    var subElementArray = $.map($('.sub-element'), function (el) { return $(el).text(); });
-    $(".element").typed({
-        strings: subElementArray,
-        typeSpeed: 30,
-        contentType: 'html',
-        showCursor: false,
-        loop: true,
-        loopCount: true,
-    });
+    // var subElementArray = $.map($('.sub-element'), function (el) { return $(el).text(); });
+    // $(".element").typed({
+    //     strings: subElementArray,
+    //     typeSpeed: 30,
+    //     contentType: 'html',
+    //     showCursor: false,
+    //     loop: true,
+    //     loopCount: true,
+    // });
     /* end typed element */
 
     /* Smooth scroll and Scroll spy (https://github.com/ChrisWojcik/single-page-nav)    
     ---------------------------------------------------------------------------------*/
 
-    $('.templatemo-nav').singlePageNav({
-        offset: $(".templatemo-nav").height(),
-        filter: ':not(.external)',
-        updateHash: false
-    });
+    // $('.templatemo-nav').singlePageNav({
+    //     offset: $(".templatemo-nav").height(),
+    //     filter: ':not(.external)',
+    //     updateHash: false
+    // });
 
     /*    $(".spa-nav").on("click", function () {
             let id = $(this).attr("href");
@@ -285,15 +285,15 @@ $(function () {
         });*/
 
     /* start navigation top js */
-    $(window).scroll(function () {
-        let height = $("header").height() + 34;
-        if ($(this).scrollTop() > height) {
-            $(".templatemo-nav").addClass("sticky");
-        }
-        else {
-            $(".templatemo-nav").removeClass("sticky");
-        }
-    });
+    // $(window).scroll(function () {
+    //     let height = $("header").height() + 34;
+    //     if ($(this).scrollTop() > height) {
+    //         $(".templatemo-nav").addClass("sticky");
+    //     }
+    //     else {
+    //         $(".templatemo-nav").removeClass("sticky");
+    //     }
+    // });
 
     /* Hide mobile menu after clicking on a link
     -----------------------------------------------*/
@@ -350,12 +350,3 @@ function userGridMargin() {
         return 250;
     }
 }
-
-
-/* start preloader */
-$(document).ready(function(){
-    $(window).load(function () {
-        $('.preloader').fadeOut(1000); // set duration in brackets    
-    });
-});
-/* end preloader */

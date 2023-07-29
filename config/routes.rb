@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  
+
+  get '/report', to: 'home#report'
+  get '/invoice', to: 'home#invoice'
+  get '/view_report', to: 'home#view_report'
+  get '/download_report', to: 'home#download_report'
+
+  root 'home#index'
+
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :referrers
@@ -40,11 +47,5 @@ Rails.application.routes.draw do
     resources :patient_procedures, only: %i[edit update]
     root 'receptionist#dashboard'
   end
-
-  get '/report', to: 'home#report'
-  get '/invoice', to: 'home#invoice'
-  get '/view_report', to: 'home#view_report'
-  get '/download_report', to: 'home#download_report'
-
-  root 'home#index'
 end
+

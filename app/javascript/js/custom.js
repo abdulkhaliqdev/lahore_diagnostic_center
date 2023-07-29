@@ -66,9 +66,9 @@ $(function () {
 
     /* Hide mobile menu after clicking on a link
     -----------------------------------------------*/
-    $('.navbar-collapse a').click(function () {
-        $(".navbar-collapse").collapse('hide');
-    });
+    // $('.navbar-collapse a').click(function () {
+    //     $(".navbar-collapse").collapse('hide');
+    // });
     /* end navigation top js */
 
     $('body').bind('touchstart', function () { });
@@ -119,12 +119,3 @@ function userGridMargin() {
         return 250;
     }
 }
-
-
-/* start preloader */
-$(document).ready(function(){
-    $(window).load(function () {
-        $('.preloader').fadeOut(1000); // set duration in brackets    
-    });
-});
-/* end preloader */

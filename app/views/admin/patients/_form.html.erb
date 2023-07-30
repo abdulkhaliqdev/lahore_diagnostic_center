@@ -25,19 +25,18 @@
 
           <div class='mb-3'>
             <%= form.label 'Phone Number', class: 'form-label' %>
-            <%= form.text_field :phone_number, placeholder: 'Phone Number', class: 'form-control' %>
+            <%= form.text_field :phone_number, placeholder: 'Phone Number', class: 'form-control', required: true %>
           </div>
-
 
           <div class='row mb-3'>
             <div class='col-6'>
               <%= form.label 'Age', class: 'form-label' %>
-              <%= form.number_field :age, placeholder: 'Age', class: 'form-control' %>
+              <%= form.number_field :age, placeholder: 'Age', class: 'form-control', required: true %>
             </div>
 
             <div class='col-6'>
               <%= form.label 'Gender', class: 'form-label' %>
-              <%= form.select :gender, options_for_select(Patient.genders.map {|k, v| [k.humanize, k]}), { prompt: 'Select Gender' }, { class: 'form-select', required: true } %>
+              <%= form.select :gender, options_for_select(Patient.genders.map {|k, v| [k.humanize, k]}), { prompt: 'Select Gender' }, { class: 'form-select' } %>
             </div>
           </div>
 
@@ -55,14 +54,13 @@
             <%= form.fields_for :patient_procedures do |patient_procedure| %>
               <%= render 'patient_procedure_fields', f: patient_procedure %>
             <% end %>
+
             <div>
               <%= link_to_add_association 'Add New Test', form, :patient_procedures, class: 'btn btn-outline-primary account-image-reset my-2 w-25 me-4'%>
             </div>
-
-            </div> 
           </div>
 
-          <div class="sub-btn mt-2 mb-3 d-flex justify-content-end me-4">
+          <div class="d-flex justify-content-end me-4 mt-2 mb-3">
             <%= form.submit class: 'btn btn-success'%>
           </div>
         <% end %>

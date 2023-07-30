@@ -27,6 +27,12 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
+    resources :transactions, only: [:index] do
+      collection do
+        get 'calculate_today_income'
+        get 'search'
+      end
+    end
     resources :procedures
     resources :users
     resources :patient_procedures, only: %i[edit update]

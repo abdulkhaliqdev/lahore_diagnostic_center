@@ -8,7 +8,6 @@ class Admin::PatientsController < Admin::BaseController
   def new
     @procedures = Procedure.all
     @patient    = Patient.new
-    @patient.patient_procedures.build
   end
   
   def create
@@ -57,10 +56,10 @@ class Admin::PatientsController < Admin::BaseController
 
   def patient_params
     params.require(:patient).permit(
-      :name, 
-      :father_husband, 
-      :gender, 
-      :age, 
+      :name,
+      :father_husband,
+      :gender,
+      :age,
       :address,
       :referrer_id,
       :done,

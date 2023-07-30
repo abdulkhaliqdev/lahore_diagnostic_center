@@ -1,0 +1,36 @@
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="card">
+    <span class='d-flex align-items-center'>
+      <h5 class="card-header">Total Amount:</h5>
+      <p class="card-header"><%= @total_amount %></p>
+    </span>
+
+    <div class="card">
+      <% if @transactions.present? %>
+        <h5 class="card-header">Income Logs</h5>
+        <div class="table-responsive text-nowrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Income</th>
+                <th>date</th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+              <% @transactions&.each do |transaction| %>
+                <tr>
+                  <td>
+                    <strong><%= transaction&.amount %></strong>
+                  </td>
+                  <td>
+                    <span class="me-1"><%= transaction&.transaction_date %></span>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ class Patient < ApplicationRecord
   has_many :procedures, through: :patient_procedures
   accepts_nested_attributes_for :patient_procedures, allow_destroy: true, reject_if: :all_blank
 
-  belongs_to :referrer
+  belongs_to :referrer, optional: true
   
   before_create :generate_patient_and_case_id
 
@@ -24,7 +24,7 @@ class Patient < ApplicationRecord
 
   def qr_generate
     url = "https://lahorediagnosticcenter.com/report.pdf?patient_id=#{self.patient_id}&case_id=#{self.case_id}"
-    qrcode = RQRCode::QRCode.new(url, size: 5, level: :m)
+    qrcode = RQRCode::QRCode.new(url, size: 6, level: :m)
     svg = qrcode.as_svg(
           color: "000",
           shape_rendering: "crispEdges",
@@ -44,8 +44,8 @@ class Patient < ApplicationRecord
   end
 
   def invoice_qr_generate
-    url = "https://lahorediagnosticcenter.com/?patient_id=#{self.patient_id}&case_id=#{self.case_id}"
-    qrcode = RQRCode::QRCode.new(url, size: 4, level: :m)
+    url = "https://lahorediagnosticcenter.com/invoice.pdf?patient_id=#{self.patient_id}&case_id=#{self.case_id}"
+    qrcode = RQRCode::QRCode.new(url, size: 6, level: :m)
     svg = qrcode.as_svg(
           color: "000",
           shape_rendering: "crispEdges",
@@ -56,7 +56,6 @@ class Patient < ApplicationRecord
 
     svg.html_safe
   end
-
 
   def bill
     sum = 0

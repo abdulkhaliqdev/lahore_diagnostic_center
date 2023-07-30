@@ -34,6 +34,12 @@
           <div data-i18n="Analytics">Users</div>
         <% end %>
       </li>
+      <li class="menu-item <%= 'active' if params[:controller] == "admin/transaction" %>">
+        <%= link_to admin_transactions_path, class: "menu-link" do %>
+          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <div data-i18n="Analytics">Transaction</div>
+        <% end %>
+      </li>
     </ul>
   </div>
 
@@ -66,6 +72,12 @@
       <%= link_to admin_users_path, class: "menu-link" do %>
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Users</div>
+      <% end %>
+    </li>
+    <li class="menu-item <%= 'active' if params[:controller] == "admin/transaction" %>">
+      <%= link_to admin_transactions_path, class: "menu-link" do %>
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Transaction</div>
       <% end %>
     </li>
   </ul>

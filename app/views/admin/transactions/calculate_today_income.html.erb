@@ -1,0 +1,13 @@
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="card">
+    <span class='d-flex align-items-center'>
+      <h5 class="card-header">Amount:</h5>
+      <p class="card-header"><%= @transaction.amount.to_f %></p>
+    </span>
+
+    <span class='d-flex align-items-center'>
+      <h5 class="card-header">Date:</h5>
+      <p class="card-header"><%= @transaction.transaction_date %></p>
+    </span>
+  </div>
+</div>

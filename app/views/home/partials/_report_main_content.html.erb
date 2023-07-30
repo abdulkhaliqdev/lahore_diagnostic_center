@@ -4,7 +4,7 @@
       <td class="text__start pl-12 mb__0 w__auto text__start mt__11">
         <h2 class="test__heading mb__0 w__100"><%= procedure.procedure.title.titleize %></h2>
         <div class="mb__0 mt__0">
-          <span>Referrer: <strong class="performed__and__referrer">Dr.Ruqaya. Iqra Hospital</strong></span>
+          <span>Referrer: <strong class="performed__and__referrer"><%= @patient.referrer.nil? ? '' : @patient.referrer %></strong></span>
         </div>
       </td>
       <td class="text__center">

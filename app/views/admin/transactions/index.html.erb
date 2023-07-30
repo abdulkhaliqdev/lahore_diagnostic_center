@@ -1,0 +1,56 @@
+<div class="container-xxl flex-grow-1 container-p-y">
+  <button type="button" class="btn p-0 m-3">
+    <%= link_to 'Today Income', calculate_today_income_admin_transactions_path, class: 'btn btn-primary'%>
+  </button>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <h5 class="card-header">Search Income From Start Date To End Date</h5>
+        <div class="card-body demo-vertical-spacing demo-only-element">
+          <%= form_for :search, url: search_admin_transactions_path, method: :get do |f| %>
+            <div class="row">
+              <div class='col-md-4'>
+                <%= f.date_field :start_date, placeholder: "Starting Date", required: true, class: 'form-control' %>
+              </div>
+              <div class='col-md-4'>
+                <%= f.date_field :end_date, placeholder: "Ending Date", class: 'form-control' %>
+              </div>
+              <div class="col-md-3">
+                <%= f.submit 'Search Patient', class: 'btn btn-success'%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <% if @transactions.present? %>
+      <h5 class="card-header">Income Logs</h5>
+      <div class="table-responsive text-nowrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Income</th>
+              <th>date</th>
+            </tr>
+          </thead>
+          <tbody class="table-border-bottom-0">
+            <% @transactions&.each do |transaction| %>
+              <tr>
+                <td>
+                  <strong><%= transaction&.amount %></strong>
+                </td>
+                <td>
+                  <span class="me-1"><%= transaction&.transaction_date %></span>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <h2 class="card-header">There is No Income yet.</h2>
+    <% end %>
+  </div>
+</div>

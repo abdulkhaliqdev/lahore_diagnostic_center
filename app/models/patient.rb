@@ -22,8 +22,8 @@ class Patient < ApplicationRecord
     self.case_id    = generate_id(year, month)
   end
 
-  def qr_generate
-    url = "https://lahorediagnosticcenter.com/report.pdf?patient_id=#{self.patient_id}&case_id=#{self.case_id}"
+  def qr_generate(test)
+    url = "https://lahorediagnosticcenter.com/report.pdf?id=#{self.id}&test_id=#{test.id}"
     qrcode = RQRCode::QRCode.new(url, size: 6, level: :m)
     svg = qrcode.as_svg(
           color: "000",

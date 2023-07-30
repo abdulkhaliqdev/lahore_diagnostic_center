@@ -44,6 +44,10 @@ class Admin::PatientsController < Admin::BaseController
                   Patient.all.order(created_at: :desc)
   end
 
+  def referrer_search
+    @patients = Patient.where(referrer_id: params[:search][:referrer_id]).order(created_at: :desc)
+  end
+
   def destroy
     if @patient.destroy
       flash[:notice] = 'Patient Deleted Successfully.'

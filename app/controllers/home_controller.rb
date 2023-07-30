@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :find_patient, only: %i[invoice report download_report]
   before_action :find_invoice_procedure, only: %i[report download_report]
-  before_action :get_patient_by_case_id_and_patient_id, only: %i[view_report]
+  before_action :get_patient_by_case_id_and_patient_id, only: %i[invoice]
 
   def index; end
 
@@ -77,11 +77,11 @@ class HomeController < ApplicationController
   private
 
   def find_patient
-    @patient = Patient.find(params[:id])
+    @patient = Patient.find(params[:id]) if params[:id].present?
   end
 
   def get_patient_by_case_id_and_patient_id
-    @patient = Patient.find_by_case_id_and_patient_id(params[:patient_id], params[:case_id])
+    @patient = Patient.find_by_case_id_and_patient_id(params[:case_id], params[:patient_id]) if params[:patient_id].present? && params[:case_id].present?
   end
 
   def find_invoice_procedure

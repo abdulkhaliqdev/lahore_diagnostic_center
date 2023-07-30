@@ -3,6 +3,9 @@
     <%= link_to 'Add New User', new_admin_patient_path, class: 'btn btn-primary'%>
   </button>
 
+  <%= render 'search_form' %>
+  <%= render 'referrer_search' %>
+
   <div class="card">
     <h5 class="card-header">Patients Queue</h5>
     <div class="table-responsive text-nowrap">

@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   enum role: {
     receptionist: 0,
-    admin: 1
+    admin: 1,
+    typist: 2
   }
 end

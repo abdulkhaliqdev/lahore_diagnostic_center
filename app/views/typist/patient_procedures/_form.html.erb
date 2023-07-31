@@ -1,0 +1,21 @@
+<div class="col-md-12 nested-fields">
+  <div class="card mb-4 p-2 border border-1">
+		<%= form_for [:typist, @patient_procedure] do |f| %>
+      <div class='mb-3'>
+        <%= f.label 'Status', class: 'form-label' %>
+        <%= f.select :done, {'completed': true, 'uncompleted': false}.map { |k| ["#{k.first}", k.last] },  { prompt: 'Select Status' }, class: "form-select" %>
+      </div>
+
+	    <div>
+	      <%= f.label 'Report', class: 'form-label' %>
+	      <%= f.rich_text_area :content %>
+	    </div>
+
+	    <%= f.hidden_field :id, value: @patient_procedure.id %>
+
+	    <div class="sub-btn mt-2 mb-3 d-flex justify-content-end me-4">
+        <%= f.submit "Update Report", class: 'btn btn-success'%>
+      </div>
+	  <% end %>
+  </div>
+</div>

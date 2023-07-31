@@ -1,0 +1,38 @@
+<div class="container-xxl flex-grow-1 container-p-y">
+  <button type="button" class="btn p-0 m-3">
+    <%= link_to 'Add New Referrer', new_typist_referrer_path, class: 'btn btn-primary'%>
+  </button>
+  <div class="card">
+    <% if @referrers.present? %>
+      <h5 class="card-header">Referrers</h5>
+      <div class="table-responsive text-nowrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Doctor Name</th>
+              <th>Hospital Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="table-border-bottom-0">
+            <% @referrers&.each do |referrer| %>
+              <tr>
+                <td>
+                  <strong><%= referrer&.doctor_name %></strong>
+                </td>
+                <td>
+                  <span class="badge bg-label-primary me-1"><%= referrer&.hospital_name%></span>
+                </td>
+                <td>
+                  <%= link_to 'Show', typist_referrer_path(referrer.id), class: 'btn btn-primary' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <h2 class="card-header">There is not Referrer yet.</h2>
+    <% end %>
+  </div>
+</div>

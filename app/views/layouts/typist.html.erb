@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Receptionist</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "typist", media: 'all' %>
+    <%= javascript_pack_tag 'typist', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+      <%= render 'typist/partials/sidebar' %>
+      
+      <div class="layout-page">
+        <%= render 'typist/partials/header' %>
+          <div class="content-wrapper">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -9,6 +9,11 @@
       <div class="card-body demo-vertical-spacing demo-only-element">
         <%= form_for [:admin, @user] do |form| %>
           <div class='mb-3'>
+            <%= form.label :role, class: 'form-label' %>
+            <%= form.select :role, options_for_select(User.roles.map {|k, v| [k.humanize, k]}), { prompt: 'Select Role' }, { class: 'form-select' } %>
+          </div>
+
+          <div class='mb-3'>
             <%= form.label :name, class: 'form-label' %>
             <%= form.text_field :name, required: true, placeholder: 'Name', class: 'form-control' %>
           </div>

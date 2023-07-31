@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card mb-4">
+      <h5 class="card-header">Search Patient</h5>
+      <div class="card-body demo-vertical-spacing demo-only-element">
+        <%= form_for :search, url: referrer_search_typist_patients_path, method: :get do |f| %>
+          <div class="row">
+            <div class='col-md-4'>
+              <%= f.select :referrer_id, Referrer.all.map { |k| ["#{k.hospital_name.humanize} - #{k.doctor_name.humanize}", k.id]},  { prompt: 'Referrer by Search' }, class: "form-select" %>
+            </div>
+            <div class="col-md-3">
+              <%= f.submit 'Search Patient by Referrer', class: 'btn btn-success'%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

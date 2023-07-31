@@ -54,5 +54,24 @@ Rails.application.routes.draw do
     resources :patient_procedures, only: %i[edit update]
     root 'receptionist#dashboard'
   end
+
+  namespace :typist do
+    resources :dashboard, only: [:index]
+    resources :referrers
+    resources :patients do
+      member do
+        get 'invoice'
+      end
+
+      collection do
+        get 'search'
+        get 'referrer_search'
+      end
+    end
+    resources :procedures
+    resources :patient_procedures, only: %i[edit update]
+
+    root 'typist#dashboard'
+  end
 end
 

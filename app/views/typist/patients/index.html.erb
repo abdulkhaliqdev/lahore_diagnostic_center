@@ -1,0 +1,45 @@
+<div class="container-xxl flex-grow-1 container-p-y">
+  <%= render 'search_form' %>
+  <%= render 'referrer_search' %>
+
+  <div class="card">
+    <h5 class="card-header">Patients Queue</h5>
+    <div class="table-responsive text-nowrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Cost</th>
+            <th>Status</th>
+            <th>Show Page</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+          <% @patients.each do |patient| %>
+            <tr>
+              <td>
+                <strong><%= patient.name %></strong>
+              </td>
+              <td><%= patient&.bill %></td>
+              <td><span class="badge bg-label-primary me-1">Completed</span></td>
+              <td>
+                <%= link_to "Show", typist_patient_path(patient), class: 'btn btn-primary' %>
+              </td>
+              <td>
+                <div class="dropdown position-relative">
+                  <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                    <div class='btn btn-primary'>menu</div>
+                  </button>
+                  <div class="dropdown-menu position-absolute">
+                    <a class="dropdown-item" href="<%= edit_typist_patient_path(patient)%>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

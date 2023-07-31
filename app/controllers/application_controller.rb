@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
         admin_dashboard_index_path
       elsif user.receptionist?
         receptionist_dashboard_index_path
+      elsif user.typist?
+        typist_dashboard_index_path
       end
     else
       root_path

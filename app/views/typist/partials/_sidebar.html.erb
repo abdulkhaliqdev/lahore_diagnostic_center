@@ -1,0 +1,60 @@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+  <div class="m-auto my-3">
+    <%= image_tag ('logo'), width: 100, height: 100, class: '' %>
+  </div>
+  <div class="menu-inner-shadow">
+    <ul class="menu-inner py-1">
+      <li class="menu-item <%= 'active' if params[:controller] == "typist/dashboard" %>">
+        <%= link_to typist_dashboard_index_path, class: "menu-link" do %>
+          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <div data-i18n="Analytics">Dashboard</div>
+        <% end %>
+      </li>
+      <li class="menu-item <%= 'active' if params[:controller] == "typist/patients" %>">
+        <%= link_to typist_patients_path, class: "menu-link" do %>
+          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <div data-i18n="Analytics">Patients</div>
+        <% end %>
+      </li>
+      <li class="menu-item <%= 'active' if params[:controller] == "typist/procedures" %>">
+        <%= link_to typist_procedures_path, class: "menu-link" do %>
+          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <div data-i18n="Analytics">Procedure</div>
+        <% end %>
+      </li>
+      <li class="menu-item <%= 'active' if params[:controller] == "typist/referrers" %>">
+        <%= link_to typist_referrers_path, class: "menu-link" do %>
+          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <div data-i18n="Analytics">Referrers</div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <ul class="menu-inner py-1">
+    <li class="menu-item <%= 'active' if params[:controller] == "typist/dashboard" %>">
+      <%= link_to typist_dashboard_index_path, class: "menu-link" do %>
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Dashboard</div>
+      <% end %>
+    </li>
+    <li class="menu-item <%= 'active' if params[:controller] == "typist/patients" %>">
+      <%= link_to typist_patients_path, class: "menu-link" do %>
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Patients</div>
+      <% end %>
+    </li>
+    <li class="menu-item <%= 'active' if params[:controller] == "typist/procedures" %>">
+      <%= link_to typist_procedures_path, class: "menu-link" do %>
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Procedure</div>
+      <% end %>
+    </li>
+    <li class="menu-item <%= 'active' if params[:controller] == "typist/referrers" %>">
+      <%= link_to typist_referrers_path, class: "menu-link" do %>
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Referrers</div>
+      <% end %>
+    </li>
+  </ul>
+</aside>

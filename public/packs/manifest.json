@@ -1,0 +1,54 @@
+{
+  "admin.js": "/packs/js/admin-4ef1160c8fa5b705ced7.js",
+  "admin.js.map": "/packs/js/admin-4ef1160c8fa5b705ced7.js.map",
+  "application.js": "/packs/js/application-24b8e3e31d7424be9173.js",
+  "application.js.map": "/packs/js/application-24b8e3e31d7424be9173.js.map",
+  "entrypoints": {
+    "admin": {
+      "js": [
+        "/packs/js/admin-4ef1160c8fa5b705ced7.js"
+      ],
+      "js.map": [
+        "/packs/js/admin-4ef1160c8fa5b705ced7.js.map"
+      ]
+    },
+    "application": {
+      "js": [
+        "/packs/js/application-24b8e3e31d7424be9173.js"
+      ],
+      "js.map": [
+        "/packs/js/application-24b8e3e31d7424be9173.js.map"
+      ]
+    },
+    "pdf": {
+      "js": [
+        "/packs/js/pdf-ad5d120cd74f22630867.js"
+      ],
+      "js.map": [
+        "/packs/js/pdf-ad5d120cd74f22630867.js.map"
+      ]
+    },
+    "receptionist": {
+      "js": [
+        "/packs/js/receptionist-e5b3dc1965933a68eacf.js"
+      ],
+      "js.map": [
+        "/packs/js/receptionist-e5b3dc1965933a68eacf.js.map"
+      ]
+    },
+    "typist": {
+      "js": [
+        "/packs/js/typist-e1643e28e3446f98829d.js"
+      ],
+      "js.map": [
+        "/packs/js/typist-e1643e28e3446f98829d.js.map"
+      ]
+    }
+  },
+  "pdf.js": "/packs/js/pdf-ad5d120cd74f22630867.js",
+  "pdf.js.map": "/packs/js/pdf-ad5d120cd74f22630867.js.map",
+  "receptionist.js": "/packs/js/receptionist-e5b3dc1965933a68eacf.js",
+  "receptionist.js.map": "/packs/js/receptionist-e5b3dc1965933a68eacf.js.map",
+  "typist.js": "/packs/js/typist-e1643e28e3446f98829d.js",
+  "typist.js.map": "/packs/js/typist-e1643e28e3446f98829d.js.map"
+}

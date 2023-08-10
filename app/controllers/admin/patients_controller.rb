@@ -52,7 +52,7 @@ class Admin::PatientsController < Admin::BaseController
     if @patient.destroy
       flash[:notice] = 'Patient Deleted Successfully.'
 
-      redirect_to admin_patients_path
+      redirect_to admin_dashboard_index_path
     end
   end
 

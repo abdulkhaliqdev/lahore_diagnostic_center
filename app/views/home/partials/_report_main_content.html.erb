@@ -4,11 +4,11 @@
       <td class="text__start pl-12 mb__0 w__auto text__start mt__11">
         <h2 class="test__heading mb__0 w__100"><%= procedure.procedure.title.titleize %></h2>
         <div class="mb__0 mt__0">
-          <span>Referrer: <strong class="performed__and__referrer"><%= @patient.referrer.nil? ? '' : @patient.referrer %></strong></span>
+          <span>Referrer: <strong class="performed__and__referrer"><%= @patient.referrer.nil? ? '' : @patient.referrer.doctor_name&.titleize %></strong></span>
         </div>
       </td>
       <td class="text__center">
-        <h4><span class='colume__heading'>REPORTED ON: </span> <%= DateTime.now.strftime('%d %b %Y %l:%M %p') %></h4>
+        <h4><span class='column__heading'>REPORTED ON: </span><%= DateTime.now.strftime('%d %b %Y %I:%M %p') %></h4>
       </td>
     </tr>
   </table>

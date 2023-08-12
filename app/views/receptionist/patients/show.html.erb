@@ -20,7 +20,7 @@
         <p><strong>ADDRESS: </strong> <%= @patient&.address %></p>
       </div>
       <div class="d-flex px-5">
-        <p><strong>DATE: </strong> <%= @patient&.created_at %></p>
+        <p><strong>DATE: </strong> <%= @patient&.created_at.strftime('%d %b %Y %I:%M %p') %></p>
       </div>
       <div class="d-flex px-5">
         <p><strong>USER: </strong> <%= @patient&.patient_procedures&.last&.user&.name&.titleize %></p>

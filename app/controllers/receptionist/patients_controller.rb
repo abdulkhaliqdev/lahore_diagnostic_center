@@ -1,4 +1,6 @@
 class Receptionist::PatientsController < Receptionist::BaseController
+  include TransactionConcern
+
   before_action :find_patient, only: [:invoice, :edit, :update, :show, :destroy]
 
   def index
@@ -20,10 +22,14 @@ class Receptionist::PatientsController < Receptionist::BaseController
   def create    
     @patient = Patient.new(patient_params)
 
-    if @patient.save
-      redirect_to receptionist_dashboard_index_path
-    else
-      redirect_to :new
+    ActiveRecord::Base.transaction do
+      if @patient.save
+        update_transaction
+
+        redirect_to receptionist_dashboard_index_path
+      else
+        redirect_to :new
+      end
     end
   end
 
@@ -33,6 +39,8 @@ class Receptionist::PatientsController < Receptionist::BaseController
   
   def update
     if @patient.update!(patient_params)
+      update_transaction
+
       redirect_to admin_dashboard_index_path
     else
       render :edit

@@ -1,6 +1,10 @@
-<div class='text__center w__100'>
-  <h1 class='page_title'>LAHORE DIAGNOSTIC CENTER</h1>
-</div>
+<table class='text__center w__100 mt-4'>
+  <tr>
+    <td>
+      <h1 class='page_title'>LAHORE DIAGNOSTIC CENTER</h1>
+    </td>
+  </tr>
+</table>
 
 <table class= 'w__100 mt__0 mb__0'>
   <tr>
@@ -47,7 +51,7 @@
         </tr>
         <tr>
           <td class="colume__heading">DATE:</td>
-          <td>20 Mar 2023 2:12 PM</td>
+          <td><%= @patient&.created_at.strftime('%d %b %Y %I:%M %p') %></td>
         </tr>
         <tr>
           <td class="colume__heading">USER:</td>

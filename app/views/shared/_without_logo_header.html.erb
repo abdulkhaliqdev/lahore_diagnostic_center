@@ -30,7 +30,7 @@
         </tr>
         <tr>
           <td class="colume__heading">DATE:</td>
-          <td>20 Mar 2023 2:12 PM</td>
+          <td><%= @patient&.created_at.strftime('%d %b %Y %I:%M %p') %></td>
         </tr>
         <tr>
           <td class="colume__heading">USER:</td>

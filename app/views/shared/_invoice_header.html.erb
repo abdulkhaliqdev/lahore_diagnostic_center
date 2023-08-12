@@ -43,7 +43,7 @@
         </tr>
         <tr>
           <td class="colume__heading">DATE:</td>
-          <td><%= DateTime.now.strftime('%d %b %Y %l:%M %p') %></td>
+          <td><%= @patient&.created_at.strftime('%d %b %Y %I:%M %p') %></td>
         </tr>
         <tr>
           <td class="colume__heading">USER:</td>

@@ -1,4 +1,6 @@
 class Admin::PatientsController < Admin::BaseController
+  include TransactionConcern
+
   before_action :find_patient, only: [:invoice, :edit, :update, :show, :destroy]
 
   def index
@@ -15,6 +17,8 @@ class Admin::PatientsController < Admin::BaseController
 
     ActiveRecord::Base.transaction do
       if @patient.save!
+        update_transaction
+
         redirect_to admin_dashboard_index_path
       else
         render :new
@@ -28,6 +32,8 @@ class Admin::PatientsController < Admin::BaseController
   
   def update
     if @patient.update!(patient_params)
+      update_transaction
+
       redirect_to admin_dashboard_index_path
     else
       render :edit

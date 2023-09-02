@@ -31,6 +31,10 @@ class Typist::PatientsController < Typist::BaseController
     @patients = Patient.where(referrer_id: params[:search][:referrer_id]).order(created_at: :desc)
   end
 
+  def search_by_name_and_phone_number
+    @patients = Patient.where("name LIKE ? OR phone_number LIKE ?", "%#{params[:search][:seach_query]}%", "%#{params[:search][:seach_query]}%")
+  end
+
   def destroy
     if @patient.destroy
       flash[:notice] = 'Patient Deleted Successfully.'

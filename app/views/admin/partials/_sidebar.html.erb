@@ -1,48 +1,8 @@
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme inverce-sidebar-menu">
   <div class="m-auto my-3">
     <%= image_tag ('logo'), width: 100, height: 100, class: '' %>
   </div>
-  <div class="menu-inner-shadow">
-    <ul class="menu-inner py-1">
-      <li class="menu-item <%= 'active' if params[:controller] == "admin/dashboard" %>">
-        <%= link_to admin_dashboard_index_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Dashboard</div>
-        <% end %>
-      </li>
-      <li class="menu-item <%= 'active' if params[:controller] == "admin/patients" %>">
-        <%= link_to admin_patients_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Patients</div>
-        <% end %>
-      </li>
-      <li class="menu-item <%= 'active' if params[:controller] == "admin/procedures" %>">
-        <%= link_to admin_procedures_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Procedure</div>
-        <% end %>
-      </li>
-      <li class="menu-item <%= 'active' if params[:controller] == "admin/referrers" %>">
-        <%= link_to admin_referrers_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Referrers</div>
-        <% end %>
-      </li>
-      <li class="menu-item <%= 'active' if params[:controller] == "admin/users" %>">
-        <%= link_to admin_users_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Users</div>
-        <% end %>
-      </li>
-      <li class="menu-item <%= 'active' if params[:controller] == "admin/transaction" %>">
-        <%= link_to admin_transactions_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Transaction</div>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-
+  <div class="menu-inner-shadow"></div>
   <ul class="menu-inner py-1">
     <li class="menu-item <%= 'active' if params[:controller] == "admin/dashboard" %>">
       <%= link_to admin_dashboard_index_path, class: "menu-link" do %>

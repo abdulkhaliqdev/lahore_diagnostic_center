@@ -1,0 +1,12 @@
+<div class="card-body demo-vertical-spacing demo-only-element">
+  <%= form_for :search, url: search_by_name_and_phone_number_receptionist_patients_path, method: :get do |f| %>
+    <div class="row">
+      <div class='col-md-4'>
+        <%= f.text_field :seach_query, placeholder: "Search By Name and Phone Number", required: true, class: 'form-control' %>
+      </div>
+      <div class="col-md-3">
+        <%= f.submit 'Search Patient', class: 'btn btn-success'%>
+      </div>
+    </div>
+  <% end %>
+</div>

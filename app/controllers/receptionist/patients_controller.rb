@@ -41,7 +41,7 @@ class Receptionist::PatientsController < Receptionist::BaseController
     if @patient.update!(patient_params)
       update_transaction
 
-      redirect_to admin_dashboard_index_path
+      redirect_to receptionist_dashboard_index_path
     else
       render :edit
     end
@@ -57,23 +57,25 @@ class Receptionist::PatientsController < Receptionist::BaseController
                   Patient.all.order(created_at: :desc)
   end
 
-  def destroy
+  def search_by_name_and_phone_number
+    @patients = Patient.where("name LIKE ? OR phone_number LIKE ?", "%#{params[:search][:seach_query]}%", "%#{params[:search][:seach_query]}%")
   end
 
   private
-
+  
   def patient_params
     params.require(:patient).permit(
-      :name, 
-      :father_husband, 
-      :gender, 
-      :age, 
+      :name,
+      :father_husband,
+      :gender,
+      :age,
       :address,
       :referrer_id,
-      patient_procedures_attributes: %i[id price procedure_id receptionist_id user_id _destroy]
+      :phone_number,
+      patient_procedures_attributes: %i[id price procedure_id content receptionist_id user_id _destroy]
     )
   end
-  
+
   def find_patient
     @patient = Patient.find(params[:id])
   end

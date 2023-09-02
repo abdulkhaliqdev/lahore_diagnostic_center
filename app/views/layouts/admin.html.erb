@@ -9,21 +9,22 @@
     <%= stylesheet_link_tag "admin", media: 'all' %>
     <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.2/css/boxicons.min.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
   </head>
 
   <body>
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-      <%= render 'admin/partials/sidebar' %>
-      
-      <div class="layout-page">
-        <%= render 'admin/partials/header' %>
+        <%= render 'admin/partials/sidebar' %>
+        <div class="layout-page">
+          <%= render 'admin/partials/header' %>
           <div class="content-wrapper">
             <%= yield %>
           </div>
         </div>
       </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
     </div>
   </body>
 </html>

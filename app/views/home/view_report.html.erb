@@ -1,0 +1,51 @@
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><%= @patient&.name&.humanize %> <span> Reports</span></h2>
+      </div>
+      <div class="col-md-12 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
+        <table class="w-25 p-2">
+          <tr>
+            <td><strong>FATHER/HUSBAND: </strong></td>
+            <td><%=@patient&.father_husband&.humanize%></td>
+          </tr>
+          <tr>
+            <td><strong>AGE: </strong></td>
+            <td><%=@patient&.age %> Years</td>
+          </tr>
+          <tr>
+            <td><strong>PHONE NUMBER: </strong></td>
+            <td> <%= @patient&.phone_number %></td>
+          </tr>
+          <tr>
+            <td><strong>ADDRESS: </strong></td>
+            <td><%=@patient&.address%></td>
+          </tr>
+          <tr>
+            <td><strong>DATE: </strong></td>
+            <td><%= @patient&.created_at&.strftime('%d %b %Y %I:%M %p') %></td>
+          </tr>
+        </table>
+        <div class='py-5'>
+          <label><strong>Check Invoice</strong></label>
+          <%= link_to "Invoice", invoice_path(id: @patient.id, format: :pdf), class: 'btn btn-primary mx-4', target: '_blank' %>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-6 col-xs-12 wow fadeInRight my-5" data-wow-offset="50" data-wow-delay="0.6s">
+        <table class='w-100'>
+          <% @tests.each do |test| %>
+            <tr class='w-100 '>
+              <td class="pl-12 mb__0 w__auto">
+                <h5 class="test__heading mb__0 w-100"><%= test&.procedure&.title&.humanize %></h5>
+              </td>
+              <td>
+                <%= link_to "Report", report_path(id: test&.patient_id, test_id: test&.id, format: :pdf), class: test&.done ? "btn btn-primary" : "btn btn-primary disabled", target: '_blank' if test.done %>
+              </td>
+            </tr>
+          <% end %>
+        </table>      
+      </div>
+    </div>
+  </div>
+</section>

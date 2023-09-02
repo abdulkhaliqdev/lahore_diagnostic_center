@@ -1,4 +1,6 @@
 class Admin::ProceduresController < Admin::BaseController
+  before_action :find_procedure, only: %i[edit update destroy show]
+
   def index
     @procedures = Procedure.order(created_at: :desc)
   end
@@ -12,7 +14,7 @@ class Admin::ProceduresController < Admin::BaseController
     if @procedure.save
       flash[:notice] = 'Procedure Created Successfully.'
 
-      redirect_to admin_procedures_path
+      redirect_to admin_procedure_path(@procedure)
     else
       render :new
     end
@@ -24,7 +26,7 @@ class Admin::ProceduresController < Admin::BaseController
     if @procedure.update(procedure_params)
       flash[:notice] = 'Procedure Update Successfully.'
 
-      redirect_to admin_referrers_path
+      redirect_to admin_procedure_path(@procedure)
     else
       render :edit
     end
@@ -33,10 +35,10 @@ class Admin::ProceduresController < Admin::BaseController
   def show; end
 
   def destroy
-    if @procedure.save
+    if @procedure.destroy
       flash[:notice] = 'Procedure Destroy Successfully.'
 
-      redirect_to admin_referrers_path
+      redirect_to admin_procedures_path
     end
   end
 
@@ -46,7 +48,7 @@ class Admin::ProceduresController < Admin::BaseController
     params.require(:procedure).permit(:procedure_type, :title, :price)
   end
   
-  def find_referrer
+  def find_procedure
     @procedure ||= Procedure.find(params[:id])
   end
 end

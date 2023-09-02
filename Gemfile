@@ -65,9 +65,6 @@ gem "trix", "~> 0.10.1"
 gem "figaro", "~> 1.2"
 gem "bootstrap-sass", "~> 3.4"
 gem "stackprof", "~> 0.2.25"
-
 gem "sprockets-rails", "~> 3.4"
-
 gem "uglifier", "~> 4.2"
-
 gem "net-http", "~> 0.3.2"

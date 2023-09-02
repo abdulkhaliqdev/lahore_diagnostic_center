@@ -24,7 +24,7 @@ class Admin::ReferrersController < Admin::BaseController
   def edit; end
 
   def update
-    if @referrer.update
+    if @referrer.update(referrer_params)
       flash[:notice] = 'Referrer Update Successfully.'
 
       redirect_to admin_referrers_path

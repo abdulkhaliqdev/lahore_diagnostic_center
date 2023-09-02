@@ -1,5 +1,14 @@
 <div class="container-xxl flex-grow-1 container-p-y">
-  <%= render 'search_form' %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <h5 class="card-header">Search Patient</h5>
+        <%= render 'search_form' %>
+        <%= render 'search_by_name_and_phone_number' %>
+      </div>
+    </div>
+  </div>
+
   <div class="card">
     <h5 class="card-header">Patients Queue</h5>
     <div class="table-responsive text-nowrap">

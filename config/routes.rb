@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
       collection do
         get 'search'
+        get 'search_by_name_and_phone_number'
         get 'referrer_search'
       end
     end
@@ -46,6 +47,8 @@ Rails.application.routes.draw do
     resources :patients do      
       collection do
         get 'search'
+        get 'search_by_name_and_phone_number'
+        get 'referrer_search'
       end
     end
 
@@ -65,6 +68,7 @@ Rails.application.routes.draw do
 
       collection do
         get 'search'
+        get 'search_by_name_and_phone_number'
         get 'referrer_search'
       end
     end

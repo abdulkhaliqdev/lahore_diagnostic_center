@@ -24,7 +24,7 @@ class Typist::ReferrersController < Typist::BaseController
   def edit; end
 
   def update
-    if @referrer.update
+    if @referrer.update(referrer_params)
       flash[:notice] = 'Referrer Update Successfully.'
 
       redirect_to typist_referrers_path

@@ -2,8 +2,8 @@
   <%= wicked_pdf_stylesheet_link_tag "admin_pdf" %>
 </head>
 <div class="main__pdf">
-  <div style="position: fixed; top: 50%; left: 25%; transform: translate(-50%, -50%); opacity: 0.1; width: 50%; height: 100%;">
-    <%=  image_tag wicked_pdf_asset_base64('logo'), style: "width: 100%; margin: auto 0; object-fit: cover;"%>
+  <div style="position: fixed; top: 90%; left: 25%; transform: translate(-50%, -50%); opacity: 0.1; width: 500px; height: 600px;">
+    <%= image_tag wicked_pdf_asset_base64('logo'), style: "width: 500px; height: 600px; margin: auto 0; object-fit: cover;"%>
   </div>
   <%= render 'shared/without_logo_header', procedure: @procedure, class: 'mt__0 mb__0'%>
   <hr class='mt__0'/>

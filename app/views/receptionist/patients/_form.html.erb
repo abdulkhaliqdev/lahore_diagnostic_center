@@ -31,6 +31,11 @@
           </div>
 
           <div class='mb-3'>
+            <%= form.label 'Phone Number', class: 'form-label' %>
+            <%= form.text_field :phone_number, placeholder: 'Phone Number', class: 'form-control', required: true %>
+          </div>
+
+          <div class='mb-3'>
             <%= form.label 'Referrer', class: 'form-label' %>
             <%= form.select :referrer_id, Referrer.all.map { |k| ["#{k.hospital_name.humanize} - #{k.doctor_name.humanize}", k.id]},  { prompt: 'Select Referrer' }, class: "form-select" %>
           </div>

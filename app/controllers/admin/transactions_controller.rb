@@ -16,8 +16,8 @@ class Admin::TransactionsController < Admin::BaseController
 
   def search
     start_date = params[:search][:start_date].to_date
-    end_date   = params[:search][:end_date].present? ? params[:search][:end_date] : Date.today
-    @transactions = Transaction.where(transaction_date: start_date..end_date)
+    end_date   = params[:search][:end_date].present? ? params[:search][:end_date].to_date : Date.today
+    @transactions = Transaction.where("transaction_date", start_date..end_date)
     @total_amount = @transactions.sum(:amount)
   end
 

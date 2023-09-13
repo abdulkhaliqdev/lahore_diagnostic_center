@@ -26,7 +26,7 @@
 
             <div class='col-6'>
               <%= form.label 'Gender', class: 'form-label' %>
-              <%= form.select :gender, options_for_select(Patient.genders.map {|k, v| [k.humanize, k]}), { prompt: 'Select Gender' }, { class: 'form-select', required: true } %>
+              <%= form.select :gender, options_for_select(Patient.genders.map {|k, v| [k.humanize, k]}, selected: @patient&.gender), { prompt: 'Select Gender' }, { class: 'form-select', required: true } %>
             </div>
           </div>
 

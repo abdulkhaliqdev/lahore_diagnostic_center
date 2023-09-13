@@ -300,6 +300,8 @@ GEM
     wicked_pdf (2.6.3)
       activesupport
     will_paginate (3.3.1)
+    will_paginate-bootstrap-style (0.2.4)
+      will_paginate (~> 3.0, >= 3.0.0)
     wkhtmltopdf-binary (0.12.6.6)
     wkhtmltopdf-heroku (2.12.6.0)
     zeitwerk (2.6.8)
@@ -346,6 +348,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
   wicked_pdf
   will_paginate (~> 3.3)
+  will_paginate-bootstrap-style (~> 0.2.4)
   wkhtmltopdf-binary
   wkhtmltopdf-heroku
 

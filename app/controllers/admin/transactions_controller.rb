@@ -1,7 +1,7 @@
 class Admin::TransactionsController < Admin::BaseController
 
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def calculate_today_income

@@ -2,7 +2,7 @@
   <div class="card mb-4 p-2 border border-1">
     <div>
       <%= f.label 'Test', class: 'form-label' %>
-      <%= f.select :procedure_id, options_for_select(@procedures.map {|k, v| [k.title.humanize, k.id]}), { prompt: 'Select Test' }, { class: 'form-select', required: true } %>
+      <%= f.select :procedure_id, options_for_select(@procedures.map {|k, v| [k.title.humanize, k.id]}, selected: f.object.procedure_id), { prompt: 'Select Test' }, { class: 'form-select', required: true } %>
     </div>
     <div>
       <%= f.label 'Price', class: 'form-label' %>

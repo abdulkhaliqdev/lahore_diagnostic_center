@@ -2,7 +2,7 @@ class Typist::ReferrersController < Typist::BaseController
   before_action :find_referrer, only: %i[edit update destroy show]
 
   def index
-    @referrers = Referrer.all.order(id: :desc)
+    @referrers = Referrer.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def new

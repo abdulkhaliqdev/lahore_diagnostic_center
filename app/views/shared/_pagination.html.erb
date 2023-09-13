@@ -1,0 +1,8 @@
+<div class="d-flex flex-column justify-content-center pagination">
+  <div class="page_info">
+    <%= page_entries_info instance %>
+  </div>
+  <div>
+    <%= will_paginate instance, container: false , list_classes: %w(pagination justify-content-center)%>
+  </div>
+</div>

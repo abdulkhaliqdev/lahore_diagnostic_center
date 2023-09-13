@@ -1,6 +1,6 @@
 class Typist::ProceduresController < Typist::BaseController
   def index
-    @procedures = Procedure.order(created_at: :desc)
+    @procedures = Procedure.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def new

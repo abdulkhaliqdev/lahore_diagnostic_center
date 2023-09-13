@@ -49,6 +49,8 @@
           </tbody>
         </table>
       </div>
+
+      <%= render 'shared/pagination', instance: @transactions %>
     <% else %>
       <h2 class="card-header">There is No Income yet.</h2>
     <% end %>

@@ -31,6 +31,8 @@
           </tbody>
         </table>
       </div>
+
+      <%= render 'shared/pagination', instance: @referrers %>
     <% else %>
       <h2 class="card-header">There is not Referrer yet.</h2>
     <% end %>

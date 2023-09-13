@@ -2,7 +2,7 @@ class Admin::ProceduresController < Admin::BaseController
   before_action :find_procedure, only: %i[edit update destroy show]
 
   def index
-    @procedures = Procedure.order(created_at: :desc)
+    @procedures = Procedure.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def new

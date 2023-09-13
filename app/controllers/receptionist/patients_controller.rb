@@ -4,13 +4,7 @@ class Receptionist::PatientsController < Receptionist::BaseController
   before_action :find_patient, only: [:invoice, :edit, :update, :show, :destroy]
 
   def index
-    @patients    = Patient.all.order(created_at: :desc)
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: 'Invoices'
-      end
-    end
+    @patients = Patient.completed.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -34,7 +28,7 @@ class Receptionist::PatientsController < Receptionist::BaseController
   end
 
   def edit
-    @procedures = Procedure.all
+    @procedures = @patient.procedures
   end
   
   def update
@@ -54,7 +48,7 @@ class Receptionist::PatientsController < Receptionist::BaseController
   def search
     @patients = params[:search].present? ?
                   Patient.where(patient_id: params[:search][:patient_id], case_id: params[:search][:case_id]).order(created_at: :desc) :
-                  Patient.all.order(created_at: :desc)
+                  Patient.completed.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def search_by_name_and_phone_number
@@ -62,7 +56,7 @@ class Receptionist::PatientsController < Receptionist::BaseController
   end
 
   private
-  
+
   def patient_params
     params.require(:patient).permit(
       :name,

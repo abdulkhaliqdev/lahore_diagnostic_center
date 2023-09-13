@@ -2,11 +2,11 @@ class Typist::PatientsController < Typist::BaseController
   before_action :find_patient, only: [:invoice, :edit, :update, :show, :destroy]
 
   def index
-    @patients    = Patient.completed.order(created_at: :desc)
+    @patients    = Patient.completed.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def edit
-    @procedures = Procedure.all
+    @procedures = @patient.procedures
   end
   
   def update
